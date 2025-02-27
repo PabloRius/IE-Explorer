@@ -1,3 +1,5 @@
+import { getImageUrl } from "@/config";
+
 export enum Affinity {
   fire = "fire",
   wood = "wood",
@@ -58,7 +60,7 @@ export class Item {
   ) {
     this.id = id;
     this.name = name;
-    this.avatar = `/src/assets/${avatar}.png`;
+    this.avatar = getImageUrl(`${avatar}.png`);
     this.game = game;
     this.how_to_obtain = how_to_obtain;
     this.price = price;
@@ -81,7 +83,7 @@ export class Shop {
     this.game = game;
     this.location = location;
     this.selling = selling;
-    this.avatar = `/src/assets/shops/${type}.png`;
+    this.avatar = getImageUrl(`shops/${type}.png`);
   }
 }
 
@@ -239,7 +241,7 @@ export class Photo extends Item {
   ) {
     const avatar = `items/photo`;
     super(id, name, avatar, game, how_to_obtain);
-    this.photo = `/src/assets/photos/${id}.png`;
+    this.photo = getImageUrl(`photos/${id}.png`);
   }
 }
 
@@ -253,7 +255,7 @@ export class Topic extends Item {
   ) {
     const avatar = `items/topic`;
     super(id, name, avatar, game, how_to_obtain);
-    this.photo = `/src/assets/topics/${id}.png`;
+    this.photo = getImageUrl(`topics/${id}.png`);
   }
 }
 
@@ -296,7 +298,7 @@ export class Match {
   ) {
     this.id = id;
     this.name = name;
-    this.avatar = `/src/assets/emblems/${emblemId}.png`;
+    this.avatar = getImageUrl(`emblems/${emblemId}.png`);
     this.game = game;
     this.rewards = rewards;
   }
@@ -318,7 +320,7 @@ export class Chest {
     this.id = id;
     this.content = content;
     this.game = game;
-    this.avatar = `/src/assets/routes/${rarity || "Chest"}.png`;
+    this.avatar = getImageUrl(`routes/${rarity || "Chest"}.png`);
     this.location = location;
   }
 }
@@ -326,7 +328,7 @@ export class Block {
   avatar: string;
   condition: Item | string;
   constructor(condition: Item | string) {
-    this.avatar = "/src/assets/routes/Block.png";
+    this.avatar = getImageUrl("routes/Block.png");
     this.condition = condition;
   }
 }
@@ -362,7 +364,7 @@ export class Route {
   ) {
     this.id = id;
     this.name = name;
-    this.avatar = "/src/assets/icons/Route.png";
+    this.avatar = getImageUrl("icons/Route.png");
     this.game = game;
     this.location = location;
     this.coords = [];
