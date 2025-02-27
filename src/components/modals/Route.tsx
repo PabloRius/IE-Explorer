@@ -1,3 +1,4 @@
+import { getImageUrl } from "@/config";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { Item, Route as RouteClass } from "../../types/database";
@@ -103,7 +104,7 @@ export function RouteModal({ route }: { route: RouteClass }) {
       )}
       <svg width={848} height={240} viewBox="0 0 848 240">
         <image
-          href={`/src/assets/routes/${id}.png`}
+          href={getImageUrl(`routes/${id}.png`)}
           width={848}
           height={240}
           className="no-pix"

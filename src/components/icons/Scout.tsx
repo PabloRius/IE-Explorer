@@ -1,3 +1,5 @@
+import { getImageUrl } from "@/config";
+
 export function Scout({ x, y }: { x: number; y: number }) {
   return (
     <svg
@@ -8,7 +10,7 @@ export function Scout({ x, y }: { x: number; y: number }) {
       y={y - 6}
       className="interactable"
     >
-      <image href="/src/assets/icons/Scout.png" width={32} height={32} />
+      <image href={getImageUrl("icons/Scout.png")} width={32} height={32} />
     </svg>
   );
 }

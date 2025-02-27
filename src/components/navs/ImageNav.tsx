@@ -1,3 +1,4 @@
+import { getImageUrl } from "@/config";
 import { Link } from "react-router";
 
 export function ImageNav({ tables }: { tables: Record<string, string> }) {
@@ -10,7 +11,7 @@ export function ImageNav({ tables }: { tables: Record<string, string> }) {
             to={`${tableKey}`}
             className="transition text-lg font-bold flex flex-col items-center"
           >
-            <img className="no-pix" src={`/src/assets/navs/${tableKey}.png`} />
+            <img className="no-pix" src={getImageUrl(`navs/${tableKey}.png`)} />
           </Link>
         );
       })}

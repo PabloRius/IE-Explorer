@@ -1,3 +1,4 @@
+import { getImageUrl } from "@/config";
 import { useGame } from "@/hooks/useGame";
 import { Link } from "react-router";
 
@@ -36,7 +37,7 @@ export function Header() {
           {/* Placeholder for the game icon */}
           <div className="w-10 h-10  flex items-center justify-center text-sm">
             <img
-              src={`/src/assets/navs/${selectedGame}.png`}
+              src={getImageUrl(`navs/${selectedGame}.png`)}
               className="no-pix"
             />
           </div>

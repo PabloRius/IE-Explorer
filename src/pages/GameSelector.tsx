@@ -1,3 +1,4 @@
+import { getImageUrl } from "@/config";
 import { useGame } from "@/hooks/useGame";
 import { DefaultLayout } from "@/layouts/Default";
 import { Game } from "@database.types";
@@ -37,7 +38,7 @@ export function GameSelector() {
               >
                 <img
                   className="no-pix"
-                  src={`/src/assets/navs/${gameKey}.png`}
+                  src={getImageUrl(`navs/${gameKey}.png`)}
                 />
               </div>
             );
