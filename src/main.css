@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes interact {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+image:not(.no-pix),
+img:not(.no-pix) {
+  image-rendering: pixelated;
+}
+
+.marker {
+  animation: blink 2s infinite;
+  transition: stroke 0.3s, filter 0.3s;
+  border-radius: 15px;
+}
+
+rect.marker {
+  fill: rgba(84, 198, 239, 0.2);
+  &:hover {
+    fill: rgba(234, 255, 8, 0.2);
+  }
+}
+
+image.marker {
+  filter: brightness(0.8);
+  &:hover {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(15deg);
+    stroke: gold;
+    stroke-width: 2;
+  }
+}
+
+.interactable {
+  cursor: pointer;
+  &:hover {
+    animation: interact 1.5s infinite;
+  }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
