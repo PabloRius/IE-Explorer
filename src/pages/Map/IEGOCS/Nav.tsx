@@ -1,9 +1,10 @@
 import { MapView } from "@/components/MapView";
+import { getImageUrl } from "@/config";
 
 export function MainNav() {
   return (
     <MapView
-      imageSrc="/src/mock/maps/IEGOCS/MainBackground.png"
+      imageSrc={getImageUrl("maps/IEGOCS/MainBackground.png")}
       width={320}
       height={216}
       markers={[
@@ -15,7 +16,7 @@ export function MainNav() {
                 y={19}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/0.png"
+                href={getImageUrl("maps/IEGOCS/0.png")}
               />
               <rect
                 x={10}
@@ -38,7 +39,7 @@ export function MainNav() {
                 y={19}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/1.png"
+                href={getImageUrl("maps/IEGOCS/1.png")}
               />
               <rect
                 x={71}
@@ -60,7 +61,7 @@ export function MainNav() {
                 y={19}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/2.png"
+                href={getImageUrl("maps/IEGOCS/2.png")}
               />
               <rect
                 x={132}
@@ -82,7 +83,7 @@ export function MainNav() {
                 y={19}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/3.png"
+                href={getImageUrl("maps/IEGOCS/3.png")}
               />
               <rect
                 x={193}
@@ -104,7 +105,7 @@ export function MainNav() {
                 y={19}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/4.png"
+                href={getImageUrl("maps/IEGOCS/4.png")}
               />
               <rect
                 x={254}
@@ -126,7 +127,7 @@ export function MainNav() {
                 y={80}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/5.png"
+                href={getImageUrl("maps/IEGOCS/5.png")}
               />
               <rect
                 x={10}
@@ -148,7 +149,7 @@ export function MainNav() {
                 y={80}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/6.png"
+                href={getImageUrl("maps/IEGOCS/6.png")}
               />
               <rect
                 x={71}
@@ -170,7 +171,7 @@ export function MainNav() {
                 y={80}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/7.png"
+                href={getImageUrl("maps/IEGOCS/7.png")}
               />
               <rect
                 x={132}
@@ -192,7 +193,7 @@ export function MainNav() {
                 y={80}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/8.png"
+                href={getImageUrl("maps/IEGOCS/8.png")}
               />
               <rect
                 x={193}
@@ -214,7 +215,7 @@ export function MainNav() {
                 y={80}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/9.png"
+                href={getImageUrl("maps/IEGOCS/9.png")}
               />
               <rect
                 x={254}
@@ -236,7 +237,7 @@ export function MainNav() {
                 y={141}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/10.png"
+                href={getImageUrl("maps/IEGOCS/10.png")}
               />
               <rect
                 x={10}
@@ -258,7 +259,7 @@ export function MainNav() {
                 y={141}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/11.png"
+                href={getImageUrl("maps/IEGOCS/11.png")}
               />
               <rect
                 x={71}
@@ -280,7 +281,7 @@ export function MainNav() {
                 y={141}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/12.png"
+                href={getImageUrl("maps/IEGOCS/12.png")}
               />
               <rect
                 x={132}
@@ -302,7 +303,7 @@ export function MainNav() {
                 y={141}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/13.png"
+                href={getImageUrl("maps/IEGOCS/13.png")}
               />
               <rect
                 x={193}
@@ -324,7 +325,7 @@ export function MainNav() {
                 y={141}
                 height={56}
                 width={56}
-                href="/src/mock/maps/IEGOCS/14.png"
+                href={getImageUrl("maps/IEGOCS/14.png")}
               />
               <rect
                 x={254}

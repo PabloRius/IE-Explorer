@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router";
 
 import { MapView } from "@/components/MapView";
 import { ShopModal } from "@/components/modals/Shop";
+import { getImageUrl } from "@/config";
 import {
   Arrow,
   Chest,
@@ -24,7 +25,9 @@ export function HolyRoadStadiumMap() {
         path="*"
         element={
           <MapView
-            imageSrc="/src/mock/maps/IEGOCS/HolyRoadStadium/MainBackground.png"
+            imageSrc={getImageUrl(
+              "maps/IEGOCS/HolyRoadStadium/MainBackground.png"
+            )}
             width={320}
             height={216}
             markers={[
@@ -36,7 +39,9 @@ export function HolyRoadStadiumMap() {
                     y={154}
                     width={74}
                     height={43}
-                    href="/src/mock/maps/IEGOCS/HolyRoadStadium/ParkingShadow.png"
+                    href={getImageUrl(
+                      "maps/IEGOCS/HolyRoadStadium/ParkingShadow.png"
+                    )}
                   />
                 ),
                 path: "Parking",
@@ -50,7 +55,9 @@ export function HolyRoadStadiumMap() {
                     y={12}
                     width={137}
                     height={111}
-                    href="/src/mock/maps/IEGOCS/HolyRoadStadium/StadiumShadow.png"
+                    href={getImageUrl(
+                      "maps/IEGOCS/HolyRoadStadium/StadiumShadow.png"
+                    )}
                   />
                 ),
                 path: "/map/IEGOCS/HolyRoadStadium/Field",
@@ -71,7 +78,7 @@ export function HolyRoadStadiumMap() {
 export function HolyRoadStadiumParking() {
   return (
     <MapView
-      imageSrc="/src/mock/maps/IEGOCS/HolyRoadStadium/0.png"
+      imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/0.png")}
       width={320}
       height={208}
       markers={[
@@ -119,7 +126,7 @@ export function HolyRoadStadiumParking() {
 export function HolyRoadStadiumEntrance() {
   return (
     <MapView
-      imageSrc="/src/mock/maps/IEGOCS/HolyRoadStadium/1.png"
+      imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/1.png")}
       width={320}
       height={208}
       markers={[
@@ -165,7 +172,7 @@ export function HolyRoadStadiumEntrance() {
 export function HolyRoadStadiumHallway() {
   return (
     <MapView
-      imageSrc="/src/mock/maps/IEGOCS/HolyRoadStadium/2.png"
+      imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/2.png")}
       width={320}
       height={208}
       markers={[
@@ -203,7 +210,7 @@ export function HolyRoadStadiumHallway() {
 export function HolyRoadStadiumField() {
   return (
     <MapView
-      imageSrc="/src/mock/maps/IEGOCS/HolyRoadStadium/3.png"
+      imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/3.png")}
       width={320}
       height={208}
       markers={[
