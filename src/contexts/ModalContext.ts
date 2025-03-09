@@ -10,12 +10,14 @@ interface ModalContextType {
     newContent: ReactNode;
     title?: string;
   }) => void;
+  quitModal: () => void;
 }
 
 const defaultModalContext: ModalContextType = {
   content: null,
   active: false,
   changeModal: () => {},
+  quitModal: () => {},
 };
 
 export const ModalContext = createContext(defaultModalContext);

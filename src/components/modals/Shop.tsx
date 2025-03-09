@@ -1,15 +1,18 @@
 import { Shop } from "@/types/database";
+import { GetDBLink } from "@/utils/getDbLink";
+import { OpenInDB } from "../OpenInDB";
 
 export function ShopModal({ shop }: { shop: Shop }) {
   const { selling } = shop;
   return (
     <div className="flex flex-col items-center gap-4 p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {selling.map((item, index) => {
+        {selling.map((item) => {
           const { avatar, name, price } = item;
+          const { dbLink } = GetDBLink({ item });
           return (
             <div
-              key={index}
+              key={name}
               className="flex flex-col items-center border-2 bg-blue-50 rounded-lg p-4"
             >
               <img
@@ -19,6 +22,7 @@ export function ShopModal({ shop }: { shop: Shop }) {
               />
               <h3 className="text-lg font-semibold text-blue-800">{name}</h3>
               <p className="text-sm text-gray-700">Price: {price} G</p>
+              <OpenInDB dbLink={dbLink} className="text-black text-sm" />
             </div>
           );
         })}

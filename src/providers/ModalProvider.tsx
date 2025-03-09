@@ -15,7 +15,6 @@ function ModalLayout({
   title?: string;
   quitModal: () => void;
 }) {
-  console.log(title);
   return (
     <div
       className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center"
@@ -78,6 +77,7 @@ export function ModalProvider({ children }: ModalProviderProps) {
         content,
         active,
         changeModal,
+        quitModal,
       }}
     >
       <div className={active ? `inset-0 z-50 overflow-hidden height:100%` : ""}>

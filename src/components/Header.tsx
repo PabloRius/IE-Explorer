@@ -6,7 +6,7 @@ export function Header() {
   const { selectedGame } = useGame();
   return (
     <header
-      className={`sm:fixed sm:min-h-20 sm:h-auto z-0 top-0 left-0 w-screen flex sm:flex-row flex-col justify-between items-center py-4 px-6 sm:px-10 gap-4 sm:gap-6 bg-gray-800 shadow-lg transition-opacity duration-200`}
+      className={`sm:min-h-20 sm:h-auto z-0 top-0 left-0 w-screen flex sm:flex-row flex-col justify-between items-center py-4 px-6 sm:px-10 gap-4 sm:gap-6 bg-gray-800 shadow-lg transition-opacity duration-200`}
     >
       <h1 className="text-xl font-bold text-yellow-400 hover:text-yellow-300 transition-colors text-center">
         <Link to="/">Inazuma Eleven Explorer</Link>

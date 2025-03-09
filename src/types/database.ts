@@ -215,6 +215,7 @@ export class PalPackItem extends Item {
 
 export class Equipment extends Item {
   modifiers: Record<string, number>;
+  type: EquipmentType;
   constructor(
     id: number,
     name: string,
@@ -228,6 +229,7 @@ export class Equipment extends Item {
     const avatar = `equipment/${type}/${repAvatar ? repAvatar : id}`;
     super(id, name, avatar, game, how_to_obtain, price);
     this.modifiers = modifiers;
+    this.type = type;
   }
 }
 

@@ -1,8 +1,12 @@
-import { Chest, Equipment } from "../../types/database";
+import { GetDBLink } from "@/utils/getDbLink";
+import { Chest, Equipment, Item } from "../../types/database";
+import { OpenInDB } from "../OpenInDB";
 
 export function ChestModal({ chest }: { chest: Chest }) {
   const { content } = chest;
   const { avatar } = content;
+  const { dbLink } =
+    content instanceof Item ? GetDBLink({ item: content }) : { dbLink: null };
   return (
     <>
       <img
@@ -25,6 +29,7 @@ export function ChestModal({ chest }: { chest: Chest }) {
           </table>
         </div>
       )}
+      <OpenInDB dbLink={dbLink} />
     </>
   );
 }

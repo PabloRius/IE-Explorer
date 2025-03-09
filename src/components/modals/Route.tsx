@@ -1,7 +1,11 @@
 import { getImageUrl } from "@/config";
-import { Cross1Icon } from "@radix-ui/react-icons";
+import { useModal } from "@/hooks/useModal";
+import { GetDBLink } from "@/utils/getDbLink";
+import { Cross1Icon, OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import { ReactNode, useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
 import { Item, Route as RouteClass } from "../../types/database";
+import { OpenInDB } from "../OpenInDB";
 
 function MatchSupportMenu({
   title,
@@ -10,6 +14,7 @@ function MatchSupportMenu({
   title: string;
   rewards: Item[];
 }) {
+  const { quitModal } = useModal();
   return (
     <>
       <h4 className="text-1xl">{title}</h4>
@@ -17,6 +22,7 @@ function MatchSupportMenu({
         <tbody className="flex flex-col gap-3">
           {rewards.map((reward) => {
             const { name, avatar } = reward;
+            const { dbLink } = GetDBLink({ item: reward });
             return (
               <tr key={name} className="flex flex-row items-center gap-3">
                 <td className="w-8 h-8 place-items-center">
@@ -26,7 +32,17 @@ function MatchSupportMenu({
                     alt={name}
                   />
                 </td>
-                <td className="text-xs">{name}</td>
+                <td className="text-xs flex-1">{name}</td>
+                <td>
+                  <Link
+                    to={dbLink}
+                    onClick={() => {
+                      quitModal();
+                    }}
+                  >
+                    <OpenInNewWindowIcon />
+                  </Link>
+                </td>
               </tr>
             );
           })}
@@ -38,6 +54,7 @@ function MatchSupportMenu({
 function BlockSupportMenu({ condition }: { condition: Item | string }) {
   if (condition instanceof Item) {
     const { name, avatar } = condition;
+    const { dbLink } = GetDBLink({ item: condition });
     return (
       <>
         <img
@@ -45,6 +62,7 @@ function BlockSupportMenu({ condition }: { condition: Item | string }) {
           className="border-3 border-b-blue-500 bg-blue-50 p-3 rounded"
         />
         <p>{name}</p>
+        <OpenInDB dbLink={dbLink} />
       </>
     );
   } else {
@@ -53,6 +71,7 @@ function BlockSupportMenu({ condition }: { condition: Item | string }) {
 }
 function ChestSupportMenu({ item }: { item: Item }) {
   const { name, avatar } = item;
+  const { dbLink } = GetDBLink({ item });
   return (
     <>
       <img
@@ -60,6 +79,7 @@ function ChestSupportMenu({ item }: { item: Item }) {
         className="border-3 border-b-blue-500 bg-blue-50 p-3 rounded"
       />
       <p>{name}</p>
+      <OpenInDB dbLink={dbLink} />
     </>
   );
 }

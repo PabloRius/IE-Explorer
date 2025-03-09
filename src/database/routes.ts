@@ -1,13 +1,13 @@
+import { matches } from ".";
 import { Block, Game, Route } from "../types/database";
 import { chests } from "./chests";
-import { matches } from ".";
 
 export const routes: Record<number, Route> = {
   0: new Route(
     0,
     "The Starter Route",
     Game.IEGOCS,
-    "HolyRoadStadium/Entrance",
+    "HolyRoadStadium/Entrance", // TODO: This is wrong
     [
       [null, null],
       [null, null, null],

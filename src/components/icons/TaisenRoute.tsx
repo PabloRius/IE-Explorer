@@ -1,4 +1,4 @@
-import { Route as RouteClass } from "../../types/database";
+import { Route as RouteClass } from "@database.types";
 
 export function TaisenRoute({
   x,

@@ -294,12 +294,18 @@ export const moves: Record<number, Move> = {
   //   Affinity.earth,
   //   { Power: 120, TP: 50, Difficulty: 60, "Stun Damage": 15 }
   // ),
-  // 222: new Move(
-  //   222,
-  //   "Dribble Boost",
-  //   Game.IEGOCS,
-  //   MoveType.skill,
-  //   Affinity.skills,
-  //   { effect: "Raises a player's dribble stat by 10" }
-  // ),
+  222: new Move(
+    222,
+    "Dribble Boost",
+    Game.IEGOCS,
+    [
+      new HTO(
+        "Defeat All Saints' Allstars on the Starter Route (upper route)",
+        "HolyRoadStadium/Entrance"
+      ),
+    ],
+    MoveType.skill,
+    Affinity.skills,
+    { effect: "Raises a player's dribble stat by 10" }
+  ),
 };
