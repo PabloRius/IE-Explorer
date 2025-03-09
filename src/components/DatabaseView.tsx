@@ -101,7 +101,7 @@ export function DatabaseView({
                         return (
                           <ul
                             key={`${name}_${hto_index}`}
-                            className="list-disc"
+                            className="list-disc text-sm"
                           >
                             {route && (
                               <Link to={finalRoute}>
