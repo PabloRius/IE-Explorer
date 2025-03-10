@@ -1,11 +1,4 @@
-import {
-  Affinity,
-  Game,
-  HTO,
-  Move,
-  MoveCharacteristic,
-  MoveType,
-} from "../types/database";
+import { Game, HTO, Move } from "../types/database";
 
 export const moves: Record<number, Move> = {
   // 1: new Move(
@@ -55,8 +48,8 @@ export const moves: Record<number, Move> = {
         "HolyRoadStadium/Entrance"
       ),
     ],
-    MoveType.block,
-    Affinity.wood,
+    "block",
+    "wood",
     {
       Power: 80,
       TP: 27,
@@ -249,8 +242,8 @@ export const moves: Record<number, Move> = {
         "HolyRoadStadium/Entrance"
       ),
     ],
-    MoveType.shoot,
-    Affinity.wind,
+    "shoot",
+    "wind",
     { Power: 60, TP: 30, Difficulty: 20, "Stun Damage": 15 }
   ),
   // 166: new Move(
@@ -281,10 +274,10 @@ export const moves: Record<number, Move> = {
         "HolyRoadStadium/Entrance"
       ),
     ],
-    MoveType.shoot,
-    Affinity.wood,
+    "shoot",
+    "wood",
     { Power: 80, TP: 50, Difficulty: 60, "Stun Damage": 35 },
-    MoveCharacteristic.chain
+    "chain"
   ),
   // 188: new Move(
   //   188,
@@ -304,8 +297,8 @@ export const moves: Record<number, Move> = {
         "HolyRoadStadium/Entrance"
       ),
     ],
-    MoveType.skill,
-    Affinity.skills,
+    "skill",
+    "skills",
     { effect: "Raises a player's dribble stat by 10" }
   ),
 };

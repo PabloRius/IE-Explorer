@@ -1,4 +1,4 @@
-import { Equipment, EquipmentType, Game, HTO } from "@database.types";
+import { Equipment, Game, HTO } from "@database.types";
 import { common_hto } from ".";
 
 export const boots: Record<number, Equipment> = {
@@ -7,7 +7,7 @@ export const boots: Record<number, Equipment> = {
     "Raimon boots",
     Game.IEGOCS,
     [common_hto.Chapter1],
-    EquipmentType.boots,
+    "boots",
     {
       kick: 1,
       speed: 1,
@@ -21,7 +21,7 @@ export const boots: Record<number, Equipment> = {
       new HTO("Inside a blue chest", "HolyRoadStadium/Parking"),
       new HTO("Buyable in the Blue Shop", "HolyRoadStadium/Parking"),
     ],
-    EquipmentType.boots,
+    "boots",
     {
       kick: 0,
       speed: 4,
@@ -38,7 +38,7 @@ export const boots: Record<number, Equipment> = {
         "HolyRoadStadium/Entrance"
       ),
     ],
-    EquipmentType.boots,
+    "boots",
     {
       kick: 9,
       speed: 5,
@@ -49,7 +49,7 @@ export const boots: Record<number, Equipment> = {
     "Sherwind boots",
     Game.IEGOCS,
     [common_hto.Chapter1],
-    EquipmentType.boots,
+    "boots",
     {
       kick: 0,
       speed: 2,
@@ -60,7 +60,7 @@ export const boots: Record<number, Equipment> = {
     "Tonghanian boots",
     Game.IEGOCS,
     [new HTO("Inside a blue chest", "HolyRoadStadium/Hallway")],
-    EquipmentType.boots,
+    "boots",
     {
       kick: 6,
       speed: 2,
@@ -74,7 +74,7 @@ export const gloves: Record<number, Equipment> = {
     "Raimon gloves",
     Game.IEGOCS,
     [common_hto.Chapter1],
-    EquipmentType.gloves,
+    "gloves",
     {
       catch: 1,
       technique: 1,
@@ -85,7 +85,7 @@ export const gloves: Record<number, Equipment> = {
     "Panther gloves",
     Game.IEGOCS,
     [new HTO("Buyable in the Blue Shop", "HolyRoadStadium/Parking")],
-    EquipmentType.gloves,
+    "gloves",
     {
       catch: 0,
       technique: 4,
@@ -97,7 +97,7 @@ export const gloves: Record<number, Equipment> = {
     "Sherwind gloves",
     Game.IEGOCS,
     [common_hto.Chapter1],
-    EquipmentType.gloves,
+    "gloves",
     {
       catch: 0,
       technique: 2,
@@ -111,7 +111,7 @@ export const pendants: Record<number, Equipment> = {
     "Drop pendant",
     Game.IEGOCS,
     [new HTO("Buyable in the Blue Shop", "HolyRoadStadium/Parking")],
-    EquipmentType.pendants,
+    "pendants",
     { dribble: 2, block: 2 },
     280
   ),
@@ -123,7 +123,7 @@ export const bracelets: Record<number, Equipment> = {
     "Leather bracelet",
     Game.IEGOCS,
     [new HTO("Buyable in the Blue Shop", "HolyRoadStadium/Parking")],
-    EquipmentType.bracelets,
+    "bracelets",
     { luck: 1, stamina: 3 },
     250
   ),

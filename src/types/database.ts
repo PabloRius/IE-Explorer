@@ -1,35 +1,18 @@
 import { getImageUrl } from "@/config";
 
-export enum Affinity {
-  fire = "fire",
-  wood = "wood",
-  wind = "wind",
-  earth = "earth",
-  neutral = "neutral",
-  skills = "",
-}
+export type Affinity =
+  | "fire"
+  | "wood"
+  | "wind"
+  | "earth"
+  | "neutral"
+  | "skills";
 
-export enum MoveType {
-  shoot = "shoot",
-  dribble = "dribble",
-  block = "block",
-  catch = "save",
-  skill = "skill",
-}
+type MoveType = "shoot" | "dribble" | "block" | "save" | "skill";
 
-export enum MoveCharacteristic {
-  chain = "chain",
-  long = "long",
-  block = "block",
-  punch = "punch",
-}
+type MoveCharacteristic = "long" | "block" | "chain" | "punch";
 
-export enum EquipmentType {
-  boots = "boots",
-  bracelets = "bracelets",
-  pendants = "pendants",
-  gloves = "gloves",
-}
+type EquipmentType = "boots" | "bracelets" | "pendants" | "gloves";
 
 export enum Game {
   "IE" = "Inazuma Eleven",
@@ -41,7 +24,9 @@ export enum Game {
   "IEHVR" = "Inazuma Eleven Heroes Victory Road",
 }
 
-export type ShopType = "purple" | "orange" | "blue";
+type ShopType = "purple" | "orange" | "blue";
+
+export type Position = "FW" | "MF" | "DF" | "GK";
 
 export class Item {
   id: number;
@@ -442,25 +427,32 @@ export class Character {
 export class Player {
   id: number;
   character: Character;
-  stats: Record<string, number>;
-  moves: Move[];
   game: Game;
+  stats: Record<string, number>;
   age: "kid" | "adult";
+  moves: Move[];
   avatar: string;
+  affinity: Affinity;
+  position: Position;
   constructor(
     id: number,
     character: Character,
     game: Game,
     stats: Record<string, number>,
     age: "kid" | "adult",
-    moves: Move[]
+    moves: Move[],
+    affinity: Affinity,
+    position: Position,
+    avatar?: number
   ) {
     this.id = id;
     this.character = character;
     this.game = game;
-    this.avatar = "WIP";
     this.stats = stats;
-    this.moves = moves;
     this.age = age;
+    this.moves = moves;
+    this.avatar = getImageUrl(`players/${avatar || id}.png`);
+    this.affinity = affinity;
+    this.position = position;
   }
 }

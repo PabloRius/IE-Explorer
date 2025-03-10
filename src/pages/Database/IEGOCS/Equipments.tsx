@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router";
 
 import { boots, bracelets, gloves, pendants } from "@/database";
-import { EquipmentType } from "@database.types";
 
 import { DatabaseView } from "@/components/DatabaseView";
 import { TextNav } from "@components/navs/TextNav";
@@ -14,10 +13,10 @@ export function EquipmentsRouter() {
         element={
           <TextNav
             tables={{
-              boots: EquipmentType.boots,
-              gloves: EquipmentType.gloves,
-              bracelets: EquipmentType.bracelets,
-              pendants: EquipmentType.pendants,
+              boots: "boots",
+              gloves: "gloves",
+              bracelets: "bracelets",
+              pendants: "pendants",
             }}
           />
         }
