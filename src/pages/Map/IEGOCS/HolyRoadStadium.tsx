@@ -18,7 +18,7 @@ import {
 } from "@components/icons";
 import { ChestModal, PhotoTopicModal, RouteModal } from "@components/modals";
 
-export function HolyRoadStadiumMap() {
+export function HolyRoadStadium() {
   return (
     <Routes>
       <Route
@@ -67,15 +67,15 @@ export function HolyRoadStadiumMap() {
           />
         }
       />
-      <Route path="Parking" element={<HolyRoadStadiumParking />} />
-      <Route path="Entrance" element={<HolyRoadStadiumEntrance />} />
-      <Route path="Hallway" element={<HolyRoadStadiumHallway />} />
-      <Route path="Field" element={<HolyRoadStadiumField />} />
+      <Route path="Parking" element={<Parking />} />
+      <Route path="Entrance" element={<Entrance />} />
+      <Route path="Hallway" element={<Hallway />} />
+      <Route path="Field" element={<Field />} />
     </Routes>
   );
 }
 
-export function HolyRoadStadiumParking() {
+export function Parking() {
   return (
     <MapView
       imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/0.png")}
@@ -123,7 +123,7 @@ export function HolyRoadStadiumParking() {
   );
 }
 
-export function HolyRoadStadiumEntrance() {
+export function Entrance() {
   return (
     <MapView
       imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/1.png")}
@@ -169,7 +169,7 @@ export function HolyRoadStadiumEntrance() {
   );
 }
 
-export function HolyRoadStadiumHallway() {
+export function Hallway() {
   return (
     <MapView
       imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/2.png")}
@@ -207,7 +207,7 @@ export function HolyRoadStadiumHallway() {
   );
 }
 
-export function HolyRoadStadiumField() {
+export function Field() {
   return (
     <MapView
       imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/3.png")}

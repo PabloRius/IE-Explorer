@@ -1,13 +1,14 @@
 import { Route, Routes } from "react-router";
+import { HolyRoadStadium } from "./HolyRoadStadium";
 import { MainNav } from "./Nav";
-import { HolyRoadStadiumMap } from "./HolyRoadStadiumMap";
+import { PresentInazuma } from "./PresentInazuma";
 
 export function MainRouter() {
   return (
     <Routes>
       <Route path="*" element={<MainNav />} />
-      <Route path="PresentInazuma" element={<>Present, Inazuma</>} />
-      <Route path="HolyRoadStadium/*" element={<HolyRoadStadiumMap />} />
+      <Route path="PresentInazuma" element={<PresentInazuma />} />
+      <Route path="HolyRoadStadium/*" element={<HolyRoadStadium />} />
       <Route path="Sanctum" element={<>Sanctum</>} />
       <Route path="Okinawa" element={<>Okinawa</>} />
       <Route path="FFStadium" element={<>Futbol Frontier Stadium</>} />
