@@ -7,6 +7,7 @@ export function MapView({
   markers,
   width,
   height,
+  title,
 }: {
   imageSrc: string;
   width?: number;
@@ -19,38 +20,42 @@ export function MapView({
     modalContent?: ReactNode;
     modalTitle?: string;
   }[];
+  title: string;
 }) {
   const { changeModal } = useContext(ModalContext);
   return (
-    <svg width="100%" viewBox={`0 0 ${width || 500} ${height || 500}`}>
-      <image href={imageSrc} width={width || 500} height={height || 500} />
-      {markers.map(
-        (
-          { marker, path, label, noredirect, modalContent, modalTitle },
-          index
-        ) => {
-          if (!noredirect)
+    <div>
+      <h2 className="text-center text-3xl mb-6">{title}</h2>
+      <svg width="100%" viewBox={`0 0 ${width || 500} ${height || 500}`}>
+        <image href={imageSrc} width={width || 500} height={height || 500} />
+        {markers.map(
+          (
+            { marker, path, label, noredirect, modalContent, modalTitle },
+            index
+          ) => {
+            if (!noredirect)
+              return (
+                <Link key={index} to={path || "/map"} aria-label={label}>
+                  {marker}
+                </Link>
+              );
             return (
-              <Link key={index} to={path || "/map"} aria-label={label}>
+              <g
+                key={index}
+                onClick={() => {
+                  if (!modalContent) return;
+                  changeModal({
+                    newContent: modalContent,
+                    title: modalTitle,
+                  });
+                }}
+              >
                 {marker}
-              </Link>
+              </g>
             );
-          return (
-            <g
-              key={index}
-              onClick={() => {
-                if (!modalContent) return;
-                changeModal({
-                  newContent: modalContent,
-                  title: modalTitle,
-                });
-              }}
-            >
-              {marker}
-            </g>
-          );
-        }
-      )}
-    </svg>
+          }
+        )}
+      </svg>
+    </div>
   );
 }
