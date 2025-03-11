@@ -7,7 +7,7 @@ export function MainRouter() {
   return (
     <Routes>
       <Route path="*" element={<MainNav />} />
-      <Route path="PresentInazuma" element={<PresentInazuma />} />
+      <Route path="PresentInazuma/*" element={<PresentInazuma />} />
       <Route path="HolyRoadStadium/*" element={<HolyRoadStadium />} />
       <Route path="Sanctum" element={<>Sanctum</>} />
       <Route path="Okinawa" element={<>Okinawa</>} />
