@@ -18,6 +18,8 @@ import {
 } from "@components/icons";
 import { ChestModal, PhotoTopicModal, RouteModal } from "@components/modals";
 
+const TITLE = "Holy Road Stadium";
+
 export function HolyRoadStadium() {
   return (
     <Routes>
@@ -25,6 +27,7 @@ export function HolyRoadStadium() {
         path="*"
         element={
           <MapView
+            title={TITLE}
             imageSrc={getImageUrl(
               "maps/IEGOCS/HolyRoadStadium/MainBackground.png"
             )}
@@ -45,7 +48,7 @@ export function HolyRoadStadium() {
                   />
                 ),
                 path: "Parking",
-                label: "Holy Road Stadium - Parking",
+                label: `${TITLE} - Parking`,
               },
               {
                 marker: (
@@ -60,8 +63,8 @@ export function HolyRoadStadium() {
                     )}
                   />
                 ),
-                path: "/map/IEGOCS/HolyRoadStadium/Field",
-                label: "Holy Road Stadium - Field",
+                path: "Field",
+                label: `${TITLE} - Field`,
               },
             ]}
           />
@@ -78,6 +81,7 @@ export function HolyRoadStadium() {
 export function Parking() {
   return (
     <MapView
+      title={`${TITLE} - Parking`}
       imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/0.png")}
       width={320}
       height={208}
@@ -85,7 +89,7 @@ export function Parking() {
         {
           marker: <Arrow x={264} y={3} direction="up" />,
           path: "../Entrance",
-          label: "Holy Road Stadium - Entrance",
+          label: `${TITLE} - Entrance`,
         },
         {
           marker: <Photo x={76} y={147} photo={photos[0]} />,
@@ -126,6 +130,7 @@ export function Parking() {
 export function Entrance() {
   return (
     <MapView
+      title={`${TITLE} - Parking`}
       imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/1.png")}
       width={320}
       height={208}
@@ -133,12 +138,12 @@ export function Entrance() {
         {
           marker: <Arrow x={197} y={203} direction="down" />,
           path: "../Parking",
-          label: "Holy Road Stadium - Parking",
+          label: `${TITLE} - Parking`,
         },
         {
           marker: <Arrow x={159} y={24} direction="up" />,
           path: "../Hallway",
-          label: "Holy Road Stadium - Hallway",
+          label: `${TITLE} - Hallway`,
         },
         {
           marker: <Topic x={154} y={83} topic={topics[0]} />,
@@ -172,6 +177,7 @@ export function Entrance() {
 export function Hallway() {
   return (
     <MapView
+      title={`${TITLE} - Hallway`}
       imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/2.png")}
       width={320}
       height={208}
@@ -179,12 +185,12 @@ export function Hallway() {
         {
           marker: <Arrow x={160} y={10} direction="up" />,
           path: "../Field",
-          label: "Holy Road Stadium - Field",
+          label: `${TITLE} - Field`,
         },
         {
           marker: <Arrow x={160} y={199} direction="down" />,
           path: "../Entrance",
-          label: "Holy Road Stadium - Entrance",
+          label: `${TITLE} - Entrance`,
         },
         {
           marker: <Chest x={122} y={143} chest={chests[3]} />,
@@ -210,6 +216,7 @@ export function Hallway() {
 export function Field() {
   return (
     <MapView
+      title={`${TITLE} - Field`}
       imageSrc={getImageUrl("maps/IEGOCS/HolyRoadStadium/3.png")}
       width={320}
       height={208}
@@ -217,7 +224,7 @@ export function Field() {
         {
           marker: <Arrow x={160} y={167} direction="down" />,
           path: "../Hallway",
-          label: "Holy Road Stadium - Hallway",
+          label: `${TITLE} - Hallway`,
         },
         { marker: <Duel x={127} y={65} />, noredirect: true },
       ]}
