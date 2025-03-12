@@ -4,6 +4,7 @@ import { getImageUrl } from "@/config";
 export function MainNav() {
   return (
     <MapView
+      title="Inazuma TM Bus"
       imageSrc={getImageUrl("maps/IEGOCS/MainBackground.png")}
       width={320}
       height={216}
