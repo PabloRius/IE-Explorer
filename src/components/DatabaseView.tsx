@@ -27,7 +27,7 @@ export function DatabaseView({
       <h2 className="text-3xl text-center mb-4">{title}</h2>
       <table className="table-auto w-full sm:w-4/5 border-collapse">
         <tbody>
-          {Object.values(table).map((row) => {
+          {Object.values(table).map((row, index) => {
             const { id, name, how_to_obtain } = row;
             let { avatar } = row;
             if (row instanceof Photo || row instanceof Topic) {
@@ -43,6 +43,11 @@ export function DatabaseView({
                 key={id}
                 id={id.toString()}
                 className="border-b border-gray-300 w-full h-auto"
+                style={
+                  index % 2 === 0
+                    ? { backgroundColor: "rgba(0,0,0,0.1)" }
+                    : undefined
+                }
               >
                 <td
                   className={`${columnClass} h-auto p-4 align-middle text-center`}
