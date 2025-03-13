@@ -195,6 +195,8 @@ export function Hallway() {
         {
           marker: <Chest x={122} y={143} chest={chests[3]} />,
           noredirect: true,
+          modalContent: <ChestModal chest={chests[3]} />,
+          modalTitle: chests[3].content.name,
         },
         { marker: <NPC x={157} y={122} />, noredirect: true },
         { marker: <NPC x={163} y={122} />, noredirect: true },
