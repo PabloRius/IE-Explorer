@@ -1,8 +1,16 @@
 import { Game, Player } from "../types/database";
 import { characters } from "./characters";
 
-export const players: Record<number, Player> = {
-  0: new Player(
+export const players: Record<number, Player> = {};
+
+function addPlayer(player: Player) {
+  const { id } = player;
+  if (id in players) throw new Error("Duplicated player ID");
+  players[id] = player;
+}
+
+addPlayer(
+  new Player(
     0,
     characters[0],
     Game.IEGOCS,
@@ -23,8 +31,11 @@ export const players: Record<number, Player> = {
     [],
     "wind",
     "MF"
-  ),
-  1: new Player(
+  )
+);
+
+addPlayer(
+  new Player(
     1,
     characters[1],
     Game.IEGOCS,
@@ -45,8 +56,11 @@ export const players: Record<number, Player> = {
     [],
     "fire",
     "FW"
-  ),
-  2: new Player(
+  )
+);
+
+addPlayer(
+  new Player(
     2,
     characters[2],
     Game.IEGOCS,
@@ -67,8 +81,11 @@ export const players: Record<number, Player> = {
     [],
     "fire",
     "GK"
-  ),
-  3: new Player(
+  )
+);
+
+addPlayer(
+  new Player(
     3,
     characters[3],
     Game.IEGOCS,
@@ -89,8 +106,11 @@ export const players: Record<number, Player> = {
     [],
     "fire",
     "DF"
-  ),
-  4: new Player(
+  )
+);
+
+addPlayer(
+  new Player(
     4,
     characters[4],
     Game.IEGOCS,
@@ -111,8 +131,11 @@ export const players: Record<number, Player> = {
     [],
     "wood",
     "DF"
-  ),
-  5: new Player(
+  )
+);
+
+addPlayer(
+  new Player(
     5,
     characters[5],
     Game.IEGOCS,
@@ -133,8 +156,11 @@ export const players: Record<number, Player> = {
     [],
     "earth",
     "DF"
-  ),
-  6: new Player(
+  )
+);
+
+addPlayer(
+  new Player(
     6,
     characters[6],
     Game.IEGOCS,
@@ -155,5 +181,30 @@ export const players: Record<number, Player> = {
     [],
     "earth",
     "GK"
-  ),
-};
+  )
+);
+
+addPlayer(
+  new Player(
+    7,
+    characters[7],
+    Game.IEGOCS,
+    {
+      GP: 1116,
+      TP: 147,
+      Kick: 62,
+      Dribbling: 78,
+      Block: 114,
+      Catch: 131,
+      Technique: 95,
+      Speed: 90,
+      Stamina: 109,
+      Lucky: 107,
+      Freedom: 63,
+    },
+    "kid",
+    [],
+    "wood",
+    "GK"
+  )
+);
