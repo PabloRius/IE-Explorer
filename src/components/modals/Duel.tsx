@@ -11,8 +11,8 @@ export function DuelModal({ duel }: { duel: Duel }) {
       <div className="flex flex-col gap-2">
         <h2 className="text-lg font-bold mb-2 text-center">Players</h2>
         <div className="flex flex-row flex-wrap gap-3 w-auto max-w-90 justify-center">
-          {players.map((player, index) => {
-            const { player: playerData, scoutable } = player;
+          {players.map((player) => {
+            const { player: playerData } = player;
             const { id, character, avatar, affinity, position } = playerData;
             const { name } = character;
             const { dbLink } = GetDBLink({ item: playerData });
