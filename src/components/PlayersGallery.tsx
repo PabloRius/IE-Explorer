@@ -27,6 +27,7 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
 
   useEffect(() => {
     const playersWithFilter = players
+      .sort((a, b) => a.character.name.localeCompare(b.character.name))
       .filter((player) => {
         const { name } = player.character;
         const matchesName = name
@@ -88,7 +89,7 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
     <div className="flex flex-col items-center w-full p-4">
       <h2 className="text-3xl text-center mb-6">Players</h2>
 
-      <div className="flex flex-col sm:flex-row gap-4 mb-6 w-full max-w-4xl">
+      <div className="flex flex-col md:flex-row gap-4 mb-6 w-full max-w-4xl">
         <input
           type="text"
           placeholder="Search by name..."
@@ -145,28 +146,30 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
           Clear filter
         </button>
 
-        <div className="flex flex-row gap-1.5 items-center">
+        <div className="flex flex-row gap-1.5 items-center text-center">
           Card size
-          <button
-            disabled={cardSize === "small"}
-            onClick={(event) => {
-              event.preventDefault();
-              setCardSize("small");
-            }}
-            className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-          >
-            <ZoomOutIcon className="cursor-pointer" />
-          </button>
-          <button
-            disabled={cardSize === "big"}
-            onClick={(event) => {
-              event.preventDefault();
-              setCardSize("big");
-            }}
-            className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-          >
-            <ZoomInIcon className="cursor-pointer" />
-          </button>
+          <span className="flex flex-row md:flex-col gap-1.5">
+            <button
+              disabled={cardSize === "small"}
+              onClick={(event) => {
+                event.preventDefault();
+                setCardSize("small");
+              }}
+              className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+            >
+              <ZoomOutIcon className="cursor-pointer" />
+            </button>
+            <button
+              disabled={cardSize === "big"}
+              onClick={(event) => {
+                event.preventDefault();
+                setCardSize("big");
+              }}
+              className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+            >
+              <ZoomInIcon className="cursor-pointer" />
+            </button>
+          </span>
         </div>
       </div>
 
