@@ -1,7 +1,7 @@
 import { getImageUrl } from "@/config";
 import { Affinity, Player, Position } from "@/types/database";
 import { StarIcon, ZoomInIcon, ZoomOutIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Filters {
   name: string;
@@ -17,6 +17,19 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
   });
   const [cardSize, setCardSize] = useState<"small" | "big">("big");
   const [favorites, setFavorites] = useState<Set<number>>(new Set()); // Track favorited players
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const id = hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+      }
+    }
+  }, []);
 
   // Toggle favorite status for a player
   const toggleFavorite = (playerId: number) => {
@@ -141,6 +154,7 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
           return (
             <div
               key={id}
+              id={id.toString()}
               className={`relative w-[35%] sm:w-auto flex flex-col  items-center bg-gray-100 rounded-lg shadow-md ${
                 cardSize === "big" ? "p-4" : "p-2"
               }`}
