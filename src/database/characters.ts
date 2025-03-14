@@ -64,3 +64,11 @@ addCharacter(
 );
 
 addCharacter(new Character(7, "Evita Gowell", "Paa", "Goe", "female", []));
+
+addCharacter(new Character(8, "Amy Sargent", "Mio", "Amy", "female", []));
+
+addCharacter(new Character(9, "Aaron Newgate", "Shintou", "Aaron", "male", []));
+
+addCharacter(new Character(10, "Sloan Steddy", "Guu", "Steddy", "male", []));
+
+addCharacter(new Character(11, "Frank Redmond", "Choki", "Reddy", "male", []));

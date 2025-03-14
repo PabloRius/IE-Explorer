@@ -15,10 +15,10 @@ addDuel(
     "The Best Friends",
     [
       { player: players[7], scoutable: false },
-      { player: players[7], scoutable: false },
-      { player: players[7], scoutable: false },
-      { player: players[7], scoutable: false },
-      { player: players[7], scoutable: false },
+      { player: players[8], scoutable: false },
+      { player: players[9], scoutable: false },
+      { player: players[10], scoutable: false },
+      { player: players[11], scoutable: false },
     ],
     []
   )
