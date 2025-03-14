@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 interface Filters {
   name: string;
+  id: string | null;
   affinity: Affinity | null;
   position: Position | null;
 }
@@ -14,27 +15,49 @@ const ITEMS_PER_PAGE = 20;
 export function PlayersGallery({ players }: { players: Array<Player> }) {
   const [filters, setFilters] = useState<Filters>({
     name: "",
+    id: null,
     affinity: null,
     position: null,
   });
+  const [filteredPlayers, setFilteredPlayers] = useState<Array<Player>>([]);
   const [cardSize, setCardSize] = useState<"small" | "big">("big");
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
-  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const [totalPages, setTotalPages] = useState<number>(1);
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    const playersWithFilter = players
+      .filter((player) => {
+        const { name } = player.character;
+        const matchesName = name
+          .toLowerCase()
+          .includes(filters.name.toLowerCase());
+        const matchesId = filters.id
+          ? player.id.toString() === filters.id
+          : true;
+        const matchesAffinity = filters.affinity
+          ? player.affinity === filters.affinity
+          : true;
+        const matchesPosition = filters.position
+          ? player.position === filters.position
+          : true;
+        return matchesName && matchesId && matchesAffinity && matchesPosition;
+      })
+      .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+    setFilteredPlayers(playersWithFilter);
+  }, [players, currentPage, filters]);
+
+  useEffect(() => {
+    setTotalPages(Math.ceil(filteredPlayers.length / ITEMS_PER_PAGE));
+  }, [filteredPlayers]);
 
   useEffect(() => {
     const hash = location.hash;
     if (hash) {
       const id = hash.replace("#", "");
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-          setHighlightedId(id);
-          setTimeout(() => {
-            setHighlightedId(null);
-          }, 1500);
-        }, 200);
+
+      if (id) {
+        setFilters((prev) => ({ ...prev, id: id }));
       }
     }
   }, []);
@@ -51,23 +74,15 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
     });
   };
 
-  const filteredPlayers = players.filter((player) => {
-    const { name } = player.character;
-    const matchesName = name.toLowerCase().includes(filters.name.toLowerCase());
-    const matchesAffinity = filters.affinity
-      ? player.affinity === filters.affinity
-      : true;
-    const matchesPosition = filters.position
-      ? player.position === filters.position
-      : true;
-    return matchesName && matchesAffinity && matchesPosition;
-  });
-
-  const totalPages = Math.ceil(filteredPlayers.length / ITEMS_PER_PAGE);
-  const paginatedPlayers = filteredPlayers.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
+  const clearFilters = () => {
+    setFilters({
+      affinity: null,
+      name: "",
+      id: null,
+      position: null,
+    });
+    history.replaceState(null, "", window.location.pathname);
+  };
 
   return (
     <div className="flex flex-col items-center w-full p-4">
@@ -123,6 +138,12 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
             </option>
           ))}
         </select>
+        <button
+          className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+          onClick={clearFilters}
+        >
+          Clear filter
+        </button>
 
         <div className="flex flex-row gap-1.5 items-center">
           Card size
@@ -152,7 +173,7 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
       <div
         className={`flex flex-row flex-wrap justify-center gap-5 w-full max-w-6xl`}
       >
-        {paginatedPlayers.map((player) => {
+        {filteredPlayers.map((player) => {
           const { id, character, avatar, affinity, position } = player;
           const { name } = character;
           const isFavorite = favorites.has(id);
@@ -163,14 +184,14 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
               id={id.toString()}
               className={`relative w-[35%] sm:w-auto flex flex-col  items-center bg-gray-100 rounded-lg shadow-md ${
                 cardSize === "big" ? "p-4" : "p-2"
-              } ${highlightedId === id.toString() ? "animate-blink" : ""}`}
+              }`}
             >
               <img
                 src={avatar}
                 alt={name}
                 className={` ${
                   cardSize === "big" ? "h-40" : "h-32"
-                } object-cover rounded-lg no-pix`}
+                } object-cover rounded-lg`}
               />
 
               <div className="absolute top-2 left-2 flex gap-2">
@@ -229,15 +250,17 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
         <span className="p-2">
           Page {currentPage} of {totalPages}
         </span>
-        <button
-          disabled={currentPage === totalPages}
-          onClick={() =>
-            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-          }
-          className="p-2 bg-gray-300 rounded disabled:opacity-50"
-        >
-          Next
-        </button>
+        {totalPages && (
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
+            className="p-2 bg-gray-300 rounded disabled:opacity-50"
+          >
+            Next
+          </button>
+        )}
       </div>
     </div>
   );
