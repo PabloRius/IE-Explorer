@@ -35,6 +35,10 @@ img:not(.no-pix) {
   border-radius: 15px;
 }
 
+.animate-blink {
+  animation: blink 0.5s ease-in-out 3;
+}
+
 rect.marker {
   fill: rgba(84, 198, 239, 0.2);
   &:hover {

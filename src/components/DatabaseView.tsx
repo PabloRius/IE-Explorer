@@ -1,5 +1,5 @@
 import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { Emblem, Equipment, Item, Photo, Topic } from "../types/database";
 
@@ -10,6 +10,7 @@ export function DatabaseView({
   title: string;
   table: Record<number, Item>;
 }) {
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
   useEffect(() => {
     const hash = location.hash;
     if (hash) {
@@ -18,6 +19,10 @@ export function DatabaseView({
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: "smooth" });
+          setHighlightedId(id);
+          setTimeout(() => {
+            setHighlightedId(null);
+          }, 1500);
         }, 200);
       }
     }
@@ -42,7 +47,9 @@ export function DatabaseView({
               <tr
                 key={id}
                 id={id.toString()}
-                className="border-b border-gray-300 w-full h-auto"
+                className={`border-b border-gray-300 w-full h-auto ${
+                  highlightedId === id.toString() ? "animate-blink" : ""
+                }`}
                 style={
                   index % 2 === 0
                     ? { backgroundColor: "rgba(0,0,0,0.1)" }
@@ -50,7 +57,7 @@ export function DatabaseView({
                 }
               >
                 <td
-                  className={`${columnClass} h-auto p-4 align-middle text-center`}
+                  className={`${columnClass} h-auto p-4 align-middle text-center `}
                 >
                   {row instanceof Photo || row instanceof Topic ? (
                     <Link

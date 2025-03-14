@@ -16,7 +16,8 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
     position: null,
   });
   const [cardSize, setCardSize] = useState<"small" | "big">("big");
-  const [favorites, setFavorites] = useState<Set<number>>(new Set()); // Track favorited players
+  const [favorites, setFavorites] = useState<Set<number>>(new Set());
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
 
   useEffect(() => {
     const hash = location.hash;
@@ -26,6 +27,10 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: "smooth" });
+          setHighlightedId(id);
+          setTimeout(() => {
+            setHighlightedId(null);
+          }, 1500);
         }, 200);
       }
     }
@@ -157,7 +162,7 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
               id={id.toString()}
               className={`relative w-[35%] sm:w-auto flex flex-col  items-center bg-gray-100 rounded-lg shadow-md ${
                 cardSize === "big" ? "p-4" : "p-2"
-              }`}
+              } ${highlightedId === id.toString() ? "animate-blink" : ""}`}
             >
               {/* Player Image */}
               <img
