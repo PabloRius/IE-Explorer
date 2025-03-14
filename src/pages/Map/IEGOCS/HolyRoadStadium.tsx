@@ -2,8 +2,10 @@ import { chests, photos, routes, shops, topics } from "@/database";
 import { Route, Routes } from "react-router";
 
 import { MapView } from "@/components/MapView";
+import { DuelModal } from "@/components/modals/Duel";
 import { ShopModal } from "@/components/modals/Shop";
 import { getImageUrl } from "@/config";
+import { duels } from "@/database/duels";
 import {
   Arrow,
   Chest,
@@ -120,7 +122,12 @@ export function Parking() {
         { marker: <NPC x={119} y={135} />, noredirect: true },
         { marker: <NPC x={195} y={91} />, noredirect: true },
         { marker: <NPC x={276} y={70} />, noredirect: true },
-        { marker: <Duel x={206} y={142} />, noredirect: true },
+        {
+          marker: <Duel x={206} y={142} />,
+          noredirect: true,
+          modalContent: <DuelModal duel={duels[0]} />,
+          modalTitle: duels[0].name,
+        },
         { marker: <Scout x={222} y={95} />, noredirect: true },
       ]}
     />
