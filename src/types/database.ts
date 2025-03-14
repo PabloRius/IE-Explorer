@@ -400,26 +400,30 @@ export class Team {
 }
 
 type NonEmptyArray<T> = [T, ...T[]];
+type LengthFiveArray<T> = [T, T, T, T, T];
 
 export class Character {
   id: number;
   name: string;
   oriName: string;
+  nickname: string;
   gender: "male" | "female" | "other";
-  mainAffiliation: Team;
+  mainAffiliation?: Team;
   affiliations: Team[];
   constructor(
     id: number,
     name: string,
     oriName: string,
+    nickname: string,
     gender: "male" | "female" | "other",
-    affiliations: NonEmptyArray<Team>
+    affiliations: Array<Team>
   ) {
     this.id = id;
     this.name = name;
     this.oriName = oriName;
+    this.nickname = nickname;
     this.gender = gender;
-    this.mainAffiliation = affiliations[0];
+    this.mainAffiliation = affiliations[0] || undefined;
     this.affiliations = affiliations;
   }
 }
@@ -454,5 +458,23 @@ export class Player {
     this.avatar = getImageUrl(`players/${avatar || id}.png`);
     this.affinity = affinity;
     this.position = position;
+  }
+}
+
+export class Duel {
+  id: number;
+  name: string;
+  players: LengthFiveArray<{ player: Player; scoutable: boolean }>;
+  rewards: Array<Item>;
+  constructor(
+    id: number,
+    name: string,
+    players: LengthFiveArray<{ player: Player; scoutable: boolean }>,
+    rewards: Array<Item>
+  ) {
+    this.id = id;
+    this.name = name;
+    this.players = players;
+    this.rewards = rewards;
   }
 }
