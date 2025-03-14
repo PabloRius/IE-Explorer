@@ -1,5 +1,7 @@
 import { getImageUrl } from "@/config";
+import { GetDBLink } from "@/utils/getDbLink";
 import { Duel, Equipment, Item } from "@database.types";
+import { OpenInDB } from "../OpenInDB";
 
 export function DuelModal({ duel }: { duel: Duel }) {
   const { players, rewards } = duel;
@@ -13,6 +15,7 @@ export function DuelModal({ duel }: { duel: Duel }) {
             const { player: playerData, scoutable } = player;
             const { id, character, avatar, affinity, position } = playerData;
             const { name } = character;
+            const { dbLink } = GetDBLink({ item: playerData });
             return (
               <div
                 key={id}
@@ -41,6 +44,7 @@ export function DuelModal({ duel }: { duel: Duel }) {
                 <p className="text-center mt-1 text-sm font-semibold text-gray-800 text-wrap w-max">
                   {name}
                 </p>
+                <OpenInDB dbLink={dbLink} className="text-gray-900 text-sm" />
               </div>
             );
           })}

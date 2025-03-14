@@ -8,12 +8,20 @@ import {
   Move,
   PalPackItem,
   Photo,
+  Player,
   Topic,
 } from "@/types/database";
 
-export function GetDBLink({ item }: { item: Item }): { dbLink: string } {
+export function GetDBLink({ item }: { item: Item | Player | Move }): {
+  dbLink: string;
+} {
   const { id } = item;
-  const routePrefix = item instanceof Move ? "/movesandspirits" : "/inventory";
+  const routePrefix =
+    item instanceof Move
+      ? "/movesandspirits"
+      : item instanceof Player
+      ? "/players"
+      : "/inventory";
   const baseRoute =
     item instanceof Consumable
       ? "/items/consumables"
@@ -31,7 +39,7 @@ export function GetDBLink({ item }: { item: Item }): { dbLink: string } {
       ? "/kits"
       : item instanceof Emblem
       ? "/emblems"
-      : null;
+      : "";
   const routeSuffix = item instanceof Equipment ? "/" + item.type : "";
   return { dbLink: `/database${routePrefix}${baseRoute}${routeSuffix}#${id}` };
 }
