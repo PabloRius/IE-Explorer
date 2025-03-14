@@ -9,6 +9,8 @@ interface Filters {
   position: Position | null;
 }
 
+const ITEMS_PER_PAGE = 20;
+
 export function PlayersGallery({ players }: { players: Array<Player> }) {
   const [filters, setFilters] = useState<Filters>({
     name: "",
@@ -18,6 +20,7 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
   const [cardSize, setCardSize] = useState<"small" | "big">("big");
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const hash = location.hash;
@@ -36,7 +39,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
     }
   }, []);
 
-  // Toggle favorite status for a player
   const toggleFavorite = (playerId: number) => {
     setFavorites((prevFavorites) => {
       const newFavorites = new Set(prevFavorites);
@@ -49,7 +51,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
     });
   };
 
-  // Filter players based on name, affinity, and position
   const filteredPlayers = players.filter((player) => {
     const { name } = player.character;
     const matchesName = name.toLowerCase().includes(filters.name.toLowerCase());
@@ -62,13 +63,17 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
     return matchesName && matchesAffinity && matchesPosition;
   });
 
+  const totalPages = Math.ceil(filteredPlayers.length / ITEMS_PER_PAGE);
+  const paginatedPlayers = filteredPlayers.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
   return (
     <div className="flex flex-col items-center w-full p-4">
       <h2 className="text-3xl text-center mb-6">Players</h2>
 
-      {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4 mb-6 w-full max-w-4xl">
-        {/* Name Filter */}
         <input
           type="text"
           placeholder="Search by name..."
@@ -77,7 +82,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
           className="p-2 border border-gray-300 rounded flex-grow"
         />
 
-        {/* Affinity Filter */}
         <select
           value={filters.affinity || ""}
           onChange={(e) =>
@@ -100,7 +104,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
           )}
         </select>
 
-        {/* Position Filter */}
         <select
           value={filters.position || ""}
           onChange={(e) =>
@@ -121,7 +124,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
           ))}
         </select>
 
-        {/* Card Size Toggle */}
         <div className="flex flex-row gap-1.5 items-center">
           Card size
           <button
@@ -147,14 +149,13 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
         </div>
       </div>
 
-      {/* Players Gallery */}
       <div
         className={`flex flex-row flex-wrap justify-center gap-5 w-full max-w-6xl`}
       >
-        {filteredPlayers.map((player) => {
+        {paginatedPlayers.map((player) => {
           const { id, character, avatar, affinity, position } = player;
           const { name } = character;
-          const isFavorite = favorites.has(id); // Check if the player is favorited
+          const isFavorite = favorites.has(id);
 
           return (
             <div
@@ -164,7 +165,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
                 cardSize === "big" ? "p-4" : "p-2"
               } ${highlightedId === id.toString() ? "animate-blink" : ""}`}
             >
-              {/* Player Image */}
               <img
                 src={avatar}
                 alt={name}
@@ -173,7 +173,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
                 } object-cover rounded-lg no-pix`}
               />
 
-              {/* Affinity and Position Icons */}
               <div className="absolute top-2 left-2 flex gap-2">
                 {!filters.affinity && (
                   <img
@@ -195,7 +194,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
                 )}
               </div>
 
-              {/* Star Icon (Favorite Button) */}
               <button
                 onClick={() => toggleFavorite(id)}
                 className="absolute top-2 right-2 p-1 rounded-full transition-colors"
@@ -207,7 +205,6 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
                 />
               </button>
 
-              {/* Player Name */}
               {cardSize === "big" && (
                 <p
                   className={`text-center mt-2 ${
@@ -220,6 +217,27 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
             </div>
           );
         })}
+      </div>
+      <div className="mt-6 flex justify-center gap-4">
+        <button
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          className="p-2 bg-gray-300 rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <span className="p-2">
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          disabled={currentPage === totalPages}
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
+          className="p-2 bg-gray-300 rounded disabled:opacity-50"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
