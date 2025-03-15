@@ -33,14 +33,14 @@ export class Item {
   name: string;
   avatar: string;
   game: Game;
-  how_to_obtain: NonEmptyArray<HTO>;
+  how_to_obtain: Array<HTO>;
   price: number | undefined;
   constructor(
     id: number,
     name: string,
     avatar: string,
     game: Game,
-    how_to_obtain: NonEmptyArray<HTO>,
+    how_to_obtain: Array<HTO>,
     price?: number
   ) {
     this.id = id;
@@ -108,7 +108,7 @@ export class Move extends Item {
     id: number,
     name: string,
     game: Game,
-    how_to_obtain: NonEmptyArray<HTO>,
+    how_to_obtain: Array<HTO>,
     type: MoveType,
     affinity: Affinity,
     attributes: Record<string, number> | Record<string, string>,
