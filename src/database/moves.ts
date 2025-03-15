@@ -108,19 +108,25 @@ export const moves: Record<number, Move> = {
   //   Difficulty: 30,
   //   "Stun Damage": -20,
   // }),
-  // 62: new Move(
-  //   62,
-  //   "Stomper Stopper",
-  //   Game.IEGOCS,
-  //   MoveType.catch,
-  //   Affinity.wood,
-  //   {
-  //     Power: 80,
-  //     TP: 30,
-  //     Difficulty: 30,
-  //     "Stun Damage": -10,
-  //   }
-  // ),
+  62: new Move(
+    62,
+    "Stomper Stopper",
+    Game.IEGOCS,
+    [
+      new HTO(
+        "Defeat Protocol Omega on the Starter Route (upper route)",
+        "HolyRoadStadium/Entrance"
+      ),
+    ],
+    "save",
+    "wood",
+    {
+      Power: 80,
+      TP: 30,
+      Difficulty: 30,
+      "Stun Damage": -10,
+    }
+  ),
   // 72: new Move(72, "Fist Beam", Game.IEGOCS, MoveType.catch, Affinity.fire, {
   //   Power: 140,
   //   TP: 45,
