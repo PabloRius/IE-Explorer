@@ -72,3 +72,35 @@ addCharacter(new Character(9, "Aaron Newgate", "Shintou", "Aaron", "male", []));
 addCharacter(new Character(10, "Sloan Steddy", "Guu", "Steddy", "male", []));
 
 addCharacter(new Character(11, "Frank Redmond", "Choki", "Reddy", "male", []));
+
+addCharacter(new Character(12, "Ted Ledd", "Pencil", "HB", "male", []));
+
+addCharacter(
+  new Character(13, "Perla Sizzors", "Scissor", "Sizzors", "female", [])
+);
+
+addCharacter(new Character(14, "Sita Square", "Tri", "Square", "female", []));
+
+addCharacter(
+  new Character(15, "Pero Tractor", "Bundoki", "Tractor", "male", [])
+);
+
+addCharacter(
+  new Character(16, "Nuno Vertigo", "Hachimaki", "Vertigo", "male", [])
+);
+
+addCharacter(
+  new Character(17, "Abel Bumpkin", "Shimen", "Bumpkin", "male", [])
+);
+
+addCharacter(new Character(18, "Tuff Weedon", "Genta", "Tuff", "male", []));
+
+addCharacter(
+  new Character(19, "Gen Tillmann", "Kyoshou", "Tillmann", "male", [])
+);
+
+addCharacter(
+  new Character(20, "Orel Knighter", "Hard", "Knighter", "male", [])
+);
+
+addCharacter(new Character(21, "Ruff Weedon", "Ganta", "Ruff", "male", []));

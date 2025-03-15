@@ -10,4 +10,10 @@ export const topics: Record<number, Topic> = {
   2: new Topic(2, "Ride like the wind", Game.IEGOCS, [
     new HTO("", "HolyRoadStadium/Parking"),
   ]),
+  3: new Topic(3, "Football team hopeful", Game.IEGOCS, [
+    new HTO("", "PresentInazuma/RiversidePitch"),
+  ]),
+  4: new Topic(4, "Reformed delinquent", Game.IEGOCS, [
+    new HTO("", "PresentInazuma/RiversidePitch"),
+  ]),
 };

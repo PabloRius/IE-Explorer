@@ -308,3 +308,253 @@ addPlayer(
     "FW"
   )
 );
+
+addPlayer(
+  new Player(
+    12,
+    characters[12],
+    Game.IEGOCS,
+    {
+      GP: 122,
+      TP: 118,
+      Kick: 123,
+      Dribbling: 107,
+      Block: 95,
+      Catch: 64,
+      Technique: 100,
+      Speed: 95,
+      Stamina: 88,
+      Lucky: 85,
+      Freedom: 59,
+    },
+    "kid",
+    [],
+    "wood",
+    "FW"
+  )
+);
+
+addPlayer(
+  new Player(
+    13,
+    characters[13],
+    Game.IEGOCS,
+    {
+      GP: 87,
+      TP: 142,
+      Kick: 52,
+      Dribbling: 68,
+      Block: 73,
+      Catch: 69,
+      Technique: 123,
+      Speed: 78,
+      Stamina: 120,
+      Lucky: 75,
+      Freedom: 62,
+    },
+    "kid",
+    [],
+    "wood",
+    "DF"
+  )
+);
+
+addPlayer(
+  new Player(
+    14,
+    characters[14],
+    Game.IEGOCS,
+    {
+      GP: 129,
+      TP: 147,
+      Kick: 102,
+      Dribbling: 112,
+      Block: 111,
+      Catch: 90,
+      Technique: 104,
+      Speed: 100,
+      Stamina: 71,
+      Lucky: 81,
+      Freedom: 54,
+    },
+    "kid",
+    [],
+    "wind",
+    "MF"
+  )
+);
+
+addPlayer(
+  new Player(
+    15,
+    characters[15],
+    Game.IEGOCS,
+    {
+      GP: 130,
+      TP: 105,
+      Kick: 76,
+      Dribbling: 90,
+      Block: 131,
+      Catch: 69,
+      Technique: 85,
+      Speed: 64,
+      Stamina: 76,
+      Lucky: 68,
+      Freedom: 55,
+    },
+    "kid",
+    [],
+    "wind",
+    "DF"
+  )
+);
+
+addPlayer(
+  new Player(
+    16,
+    characters[16],
+    Game.IEGOCS,
+    {
+      GP: 144,
+      TP: 134,
+      Kick: 75,
+      Dribbling: 76,
+      Block: 90,
+      Catch: 138,
+      Technique: 97,
+      Speed: 131,
+      Stamina: 90,
+      Lucky: 83,
+      Freedom: 59,
+    },
+    "kid",
+    [],
+    "fire",
+    "GK"
+  )
+);
+
+addPlayer(
+  new Player(
+    17,
+    characters[17],
+    Game.IEGOCS,
+    {
+      GP: 159,
+      TP: 108,
+      Kick: 64,
+      Dribbling: 83,
+      Block: 76,
+      Catch: 141,
+      Technique: 109,
+      Speed: 85,
+      Stamina: 92,
+      Lucky: 91,
+      Freedom: 93,
+    },
+    "kid",
+    [],
+    "fire",
+    "GK"
+  )
+);
+
+addPlayer(
+  new Player(
+    18,
+    characters[18],
+    Game.IEGOCS,
+    {
+      GP: 142,
+      TP: 103,
+      Kick: 69,
+      Dribbling: 64,
+      Block: 144,
+      Catch: 66,
+      Technique: 98,
+      Speed: 88,
+      Stamina: 120,
+      Lucky: 107,
+      Freedom: 93,
+    },
+    "kid",
+    [],
+    "wood",
+    "DF"
+  )
+);
+
+addPlayer(
+  new Player(
+    19,
+    characters[19],
+    Game.IEGOCS,
+    {
+      GP: 130,
+      TP: 95,
+      Kick: 59,
+      Dribbling: 68,
+      Block: 123,
+      Catch: 64,
+      Technique: 77,
+      Speed: 83,
+      Stamina: 99,
+      Lucky: 81,
+      Freedom: 61,
+    },
+    "kid",
+    [],
+    "wood",
+    "DF"
+  )
+);
+
+addPlayer(
+  new Player(
+    20,
+    characters[20],
+    Game.IEGOCS,
+    {
+      GP: 116,
+      TP: 108,
+      Kick: 61,
+      Dribbling: 120,
+      Block: 94,
+      Catch: 50,
+      Technique: 77,
+      Speed: 90,
+      Stamina: 91,
+      Lucky: 64,
+      Freedom: 76,
+    },
+    "kid",
+    [],
+    "wood",
+    "MF"
+  )
+);
+
+addPlayer(
+  new Player(
+    21,
+    characters[21],
+    Game.IEGOCS,
+    {
+      GP: 127,
+      TP: 90,
+      Kick: 159,
+      Dribbling: 66,
+      Block: 47,
+      Catch: 53,
+      Technique: 87,
+      Speed: 81,
+      Stamina: 110,
+      Lucky: 54,
+      Freedom: 83,
+    },
+    "kid",
+    [],
+    "fire",
+    "FW"
+  )
+);
