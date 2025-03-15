@@ -1,6 +1,17 @@
-import { Arrow } from "@/components/icons";
+import {
+  Arrow,
+  Duel,
+  NPC,
+  Scout,
+  TaisenRoute,
+  Topic,
+} from "@/components/icons";
 import { MapView } from "@/components/MapView";
+import { PhotoTopicModal, RouteModal } from "@/components/modals";
+import { DuelModal } from "@/components/modals/Duel";
 import { getImageUrl } from "@/config";
+import { routes, topics } from "@/database";
+import { duels } from "@/database/duels";
 import { Route, Routes } from "react-router";
 
 const TITLE = "Present Inazuma";
@@ -662,6 +673,64 @@ function RiversidePitch() {
           marker: <Arrow x={105} y={46} direction="left" />,
           path: "../Station",
           label: `${TITLE} - Station`,
+        },
+        {
+          marker: <TaisenRoute x={145} y={107} route={routes[0]} />,
+          noredirect: true,
+          modalContent: <RouteModal route={routes[0]} />,
+          modalTitle: routes[0].name,
+        },
+        {
+          marker: <Topic x={111} y={172} topic={topics[3]} />,
+          noredirect: true,
+          modalContent: <PhotoTopicModal content={topics[3]} />,
+          modalTitle: topics[3].name,
+        },
+        {
+          marker: <Topic x={206} y={194} topic={topics[4]} />,
+          noredirect: true,
+          modalContent: <PhotoTopicModal content={topics[4]} />,
+          modalTitle: topics[4].name,
+        },
+        {
+          marker: <NPC x={148} y={190} />,
+          noredirect: true,
+        },
+        {
+          marker: <NPC x={101} y={119} />,
+          noredirect: true,
+        },
+        {
+          marker: <NPC x={192} y={112} />,
+          noredirect: true,
+        },
+        {
+          marker: <NPC x={165} y={96} />,
+          noredirect: true,
+        },
+        {
+          marker: <NPC x={121} y={31} />,
+          noredirect: true,
+        },
+        {
+          marker: <NPC x={167} y={47} />,
+          noredirect: true,
+        },
+        {
+          marker: <Scout x={210} y={58} />,
+          noredirect: true,
+        },
+        {
+          marker: <Duel x={187} y={34} />,
+          noredirect: true,
+          modalContent: <DuelModal duel={duels[1]} />,
+          modalTitle: duels[1].name,
+        },
+        {
+          marker: <Duel x={167} y={182} />,
+          noredirect: true,
+          modalContent: <DuelModal duel={duels[2]} />,
+          modalTitle: duels[2].name,
         },
       ]}
     />
