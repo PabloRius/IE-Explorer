@@ -1,86 +1,84 @@
 import { getImageUrl } from "@/config";
 import { GetDBLink } from "@/utils/getDbLink";
-import { Duel, Equipment, Item } from "@database.types";
+import { Duel } from "@database.types";
 import { OpenInDB } from "../OpenInDB";
 
 export function DuelModal({ duel }: { duel: Duel }) {
   const { players, rewards } = duel;
 
   return (
-    <div className="flex gap-6 p-4 w-auto">
-      <div className="flex flex-col gap-2">
+    <div className="flex flex-col md:flex-row gap-6 p-4 w-full">
+      <div className="flex flex-col gap-2 flex-1 w-full md:w-2/3 h-max">
         <h2 className="text-lg font-bold mb-2 text-center">Players</h2>
-        <div className="flex flex-row flex-wrap gap-3 w-auto max-w-90 justify-center">
+        <div className="flex flex-row flex-wrap gap-3 justify-center">
           {players.map((player) => {
             const { player: playerData } = player;
             const { id, character, avatar, affinity, position } = playerData;
             const { name } = character;
             const { dbLink } = GetDBLink({ item: playerData });
+
             return (
               <div
                 key={id}
-                className="relative w-max flex flex-col items-center bg-gray-100 rounded-lg shadow-md p-2"
+                className="relative w-auto flex flex-col items-center bg-gray-100 rounded-lg shadow-md p-2"
               >
                 <img
                   src={avatar}
                   alt={name}
-                  className="h-24 aspect-square rounded-lg no-pix"
+                  className="h-16 md:h-20 aspect-square rounded-lg no-pix"
                 />
 
                 <div className="absolute top-2 left-2 flex gap-2">
                   <img
                     src={getImageUrl(`icons/${affinity}.png`)}
                     alt={affinity}
-                    className="w-4 h-4"
+                    className="w-3 h-3 md:w-4 md:h-4"
                   />
 
                   <img
                     src={getImageUrl(`icons/${position}.png`)}
                     alt={position}
-                    className="w-10 h-4"
+                    className="w-8 h-3 md:w-10 md:h-4"
                   />
                 </div>
 
-                <p className="text-center mt-1 text-sm font-semibold text-gray-800 text-wrap w-max">
+                <p className="text-center mt-1 text-xs md:text-sm font-semibold text-gray-800 text-wrap w-max">
                   {name}
                 </p>
-                <OpenInDB dbLink={dbLink} className="text-gray-900 text-sm" />
+                <OpenInDB dbLink={dbLink} className="text-gray-900 text-xs" />
               </div>
             );
           })}
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <h2 className="text-lg font-bold mb-2 text-center">Rewards</h2>
-        <div className="flex flex-col gap-3">
-          {rewards.map((reward, index) => (
-            <div key={index} className="p-2 border rounded bg-yellow-50">
-              {reward instanceof Equipment ? (
-                <div>
-                  <h3 className="font-semibold">{reward.name} (Equipment)</h3>
-                  <table className="table-auto text-sm mt-1">
-                    <tbody>
-                      {Object.entries(reward.modifiers).map(
-                        ([modName, modValue], i) => (
-                          <tr key={i}>
-                            <td className="px-2 py-0.5 capitalize">
-                              {modName}
-                            </td>
-                            <td className="px-2 py-0.5">{modValue}</td>
-                          </tr>
-                        )
-                      )}
-                    </tbody>
-                  </table>
+      {rewards && rewards.length > 0 && (
+        <div className="flex flex-col w-full md:w-1/3">
+          <h2 className="text-lg font-bold mb-2 text-center">Rewards</h2>
+          <div className="flex flex-row flex-wrap gap-3 justify-center">
+            {rewards.map((reward) => {
+              const { id, name, avatar } = reward;
+              const { dbLink } = GetDBLink({ item: reward });
+              return (
+                <div
+                  key={id}
+                  className="w-auto flex flex-col items-center bg-gray-100 rounded-lg shadow-md p-2"
+                >
+                  <img
+                    src={avatar}
+                    alt={name}
+                    className="h-16 md:h-20 aspect-square rounded-lg no-pix"
+                  />
+                  <p className="text-center mt-1 text-xs md:text-sm font-semibold text-gray-800 text-wrap w-max">
+                    {name}
+                  </p>
+                  <OpenInDB dbLink={dbLink} className="text-gray-900 text-xs" />
                 </div>
-              ) : (
-                <p className="font-semibold">{(reward as Item).name}</p>
-              )}
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
