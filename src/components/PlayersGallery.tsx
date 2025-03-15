@@ -185,14 +185,14 @@ export function PlayersGallery({ players }: { players: Array<Player> }) {
             <div
               key={id}
               id={id.toString()}
-              className={`relative w-[35%] sm:w-auto flex flex-col  items-center bg-gray-100 rounded-lg shadow-md ${
+              className={`relative sm:w-auto flex flex-col items-center bg-gray-100 rounded-lg shadow-md ${
                 cardSize === "big" ? "p-4" : "p-2"
               }`}
             >
               <img
                 src={avatar}
                 alt={name}
-                className={` ${
+                className={`${
                   cardSize === "big" ? "h-40" : "h-32"
                 } object-cover rounded-lg`}
               />
