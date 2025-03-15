@@ -13,7 +13,7 @@ export function OpenInDB({
   return (
     dbLink && (
       <Link
-        className={`flex flex-row items-center gap-1 cursor-help ${className}`}
+        className={`flex flex-row items-center gap-1 cursor-help ${className} text-center`}
         to={dbLink}
         onClick={() => {
           quitModal();
