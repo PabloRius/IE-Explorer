@@ -9,49 +9,68 @@ function addTopic(topic: Topic) {
 }
 
 addTopic(
-  new Topic(0, "Coin collecting", Game.IEGOCS, [
-    new HTO("", "HolyRoadStadium/Hallway"),
-  ])
+  new Topic(
+    0,
+    "Coin collecting",
+    Game.IEGOCS,
+    new HTO("", "HolyRoadStadium/Hallway")
+  )
 );
 
 addTopic(
-  new Topic(1, "Old Football Frontiers", Game.IEGOCS, [
-    new HTO("", "HolyRoadStadium/Hallway"),
-  ])
+  new Topic(
+    1,
+    "Old Football Frontiers",
+    Game.IEGOCS,
+    new HTO("", "HolyRoadStadium/Hallway")
+  )
 );
 
 addTopic(
-  new Topic(2, "Ride like the wind", Game.IEGOCS, [
-    new HTO("", "HolyRoadStadium/Parking"),
-  ])
+  new Topic(
+    2,
+    "Ride like the wind",
+    Game.IEGOCS,
+    new HTO("", "HolyRoadStadium/Parking")
+  )
 );
 
 addTopic(
-  new Topic(3, "Football team hopeful", Game.IEGOCS, [
-    new HTO("", "PresentInazuma/RiversidePitch"),
-  ])
+  new Topic(
+    3,
+    "Football team hopeful",
+    Game.IEGOCS,
+    new HTO("", "PresentInazuma/RiversidePitch")
+  )
 );
 
 addTopic(
-  new Topic(4, "Reformed delinquent", Game.IEGOCS, [
-    new HTO("", "PresentInazuma/RiversidePitch"),
-  ])
+  new Topic(
+    4,
+    "Reformed delinquent",
+    Game.IEGOCS,
+    new HTO("", "PresentInazuma/RiversidePitch")
+  )
 );
 
 addTopic(
-  new Topic(5, "Bonsai Gardener", Game.IEGOCS, [
-    new HTO("", "PresentInazuma/RiversideNorth"),
-  ])
+  new Topic(
+    5,
+    "Bonsai Gardener",
+    Game.IEGOCS,
+    new HTO("", "PresentInazuma/RiversideNorth")
+  )
 );
 
 addTopic(
-  new Topic(6, "New shop", Game.IEGOCS, [
-    new HTO("", "PresentInazuma/RiversideNorth"),
-  ])
+  new Topic(
+    6,
+    "New shop",
+    Game.IEGOCS,
+    new HTO("", "PresentInazuma/RiversideNorth")
+  )
 );
 
 addTopic(
-  new Topic(7, "Tearjerker", Game.IEGOCS, [
-    new HTO("", "PresentInazuma/Station"),
-  ])
+  new Topic(7, "Tearjerker", Game.IEGOCS, new HTO("", "PresentInazuma/Station"))
 );
