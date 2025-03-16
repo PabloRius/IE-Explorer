@@ -170,7 +170,7 @@ export function RouteModal({ route }: { route: RouteClass }) {
             );
           } else if (type === "chest") {
             const { chest } = node;
-            const { avatar, content } = chest;
+            const { content } = chest;
             return (
               <image
                 key={index}
@@ -178,7 +178,7 @@ export function RouteModal({ route }: { route: RouteClass }) {
                 y={y - 24}
                 width={35}
                 height={33}
-                href={avatar}
+                href={getImageUrl(`routes/Chest.png`)}
                 className="no-pix interactable"
                 onClick={() => {
                   changeSupportMenu(<ChestSupportMenu item={content} />);
