@@ -5,6 +5,7 @@ import {
   Consumable,
   Emblem,
   Equipment,
+  HTO,
   Item,
   Photo,
   Topic,
@@ -70,7 +71,7 @@ export function DatabaseView({
                   >
                     {row instanceof Photo || row instanceof Topic ? (
                       <Link
-                        to={`/map/${how_to_obtain[0].route}`}
+                        to={`/map/${(how_to_obtain as HTO).route}`}
                         className="flex flex-row items-center justify-center gap-2"
                       >
                         {name} <OpenInNewWindowIcon />
@@ -117,7 +118,10 @@ export function DatabaseView({
                       <td
                         className={`${columnClass} h-auto p-1 sm:p-4 justify-center`}
                       >
-                        {how_to_obtain.map((hto, hto_index) => {
+                        {(how_to_obtain instanceof Array
+                          ? how_to_obtain
+                          : [how_to_obtain]
+                        ).map((hto, hto_index) => {
                           const { method, route } = hto;
                           const finalRoute = "/map/" + route;
                           return (

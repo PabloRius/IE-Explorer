@@ -215,12 +215,7 @@ export class Equipment extends Item {
 
 export class Photo extends Item {
   photo: string;
-  constructor(
-    id: number,
-    name: string,
-    game: Game,
-    how_to_obtain: NonEmptyArray<HTO>
-  ) {
+  constructor(id: number, name: string, game: Game, how_to_obtain: HTO) {
     const avatar = `items/photo`;
     super(id, name, avatar, game, how_to_obtain);
     this.photo = getImageUrl(`photos/${id}.png`);
@@ -229,12 +224,7 @@ export class Photo extends Item {
 
 export class Topic extends Item {
   photo: string;
-  constructor(
-    id: number,
-    name: string,
-    game: Game,
-    how_to_obtain: NonEmptyArray<HTO>
-  ) {
+  constructor(id: number, name: string, game: Game, how_to_obtain: HTO) {
     const avatar = `items/topic`;
     super(id, name, avatar, game, how_to_obtain);
     this.photo = getImageUrl(`topics/${id}.png`);
