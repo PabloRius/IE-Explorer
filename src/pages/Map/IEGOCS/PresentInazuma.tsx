@@ -7,12 +7,10 @@ import {
   Topic,
 } from "@/components/icons";
 import { MapView } from "@/components/MapView";
-import { PhotoTopicModal, RouteModal } from "@/components/modals";
-import { DuelModal } from "@/components/modals/Duel";
 import { getImageUrl } from "@/config";
 import { routes, topics } from "@/database";
 import { duels } from "@/database/duels";
-import { Route, Routes } from "react-router";
+import { Link, Route, Routes } from "react-router";
 
 const TITLE = "Present Inazuma";
 
@@ -30,134 +28,102 @@ export function PresentInazuma() {
             width={320}
             height={216}
             markers={[
-              {
-                marker: (
-                  <image
-                    className="marker"
-                    x={184}
-                    y={11}
-                    width={57}
-                    height={42}
-                    href={getImageUrl(
-                      "maps/IEGOCS/PresentInazuma/WindsorManorShadow.png"
-                    )}
-                  />
-                ),
-                path: "RiversideNorth",
-                label: `${TITLE} - Windsor Manor`,
-              },
-              {
-                marker: (
-                  <image
-                    className="marker"
-                    x={247}
-                    y={65}
-                    width={41}
-                    height={35}
-                    href={getImageUrl(
-                      "maps/IEGOCS/PresentInazuma/RiversideShadow.png"
-                    )}
-                  />
-                ),
-                path: "RiversidePitch",
-                label: `${TITLE} - Riverside`,
-              },
-              {
-                marker: (
-                  <image
-                    className="marker"
-                    x={173}
-                    y={151}
-                    width={86}
-                    height={56}
-                    href={getImageUrl(
-                      "maps/IEGOCS/PresentInazuma/TowerShadow.png"
-                    )}
-                  />
-                ),
-                path: "InazumaTower",
-                label: `${TITLE} - Tower`,
-              },
-              {
-                marker: (
-                  <image
-                    className="marker"
-                    x={147.3}
-                    y={68.8}
-                    width={68}
-                    height={49}
-                    href={getImageUrl(
-                      "maps/IEGOCS/PresentInazuma/RaimonJrHighShadow.png"
-                    )}
-                  />
-                ),
-                path: "RaimonPitch",
-                label: `${TITLE} - Raimon Jr High`,
-              },
-              {
-                marker: (
-                  <image
-                    className="marker"
-                    x={66}
-                    y={114}
-                    width={52}
-                    height={34}
-                    href={getImageUrl(
-                      "maps/IEGOCS/PresentInazuma/ShoppingAreaShadow.png"
-                    )}
-                  />
-                ),
-                path: "ShoppingAreaSouth",
-                label: `${TITLE} - Shopping Area`,
-              },
-              {
-                marker: (
-                  <image
-                    className="marker"
-                    x={12}
-                    y={100}
-                    width={32}
-                    height={32}
-                    href={getImageUrl(
-                      "maps/IEGOCS/PresentInazuma/ParkShadow.png"
-                    )}
-                  />
-                ),
-                path: "InazumaPark",
-                label: `${TITLE} - Park`,
-              },
-              {
-                marker: (
-                  <image
-                    className="marker"
-                    x={83}
-                    y={40}
-                    width={43}
-                    height={35}
-                    href={getImageUrl(
-                      "maps/IEGOCS/PresentInazuma/HospitalShadow.png"
-                    )}
-                  />
-                ),
-                path: "Hospital",
-                label: `${TITLE} - Hospital`,
-              },
-              {
-                marker: (
-                  <image
-                    className="marker"
-                    x={23}
-                    y={33}
-                    width={51}
-                    height={33}
-                    href={getImageUrl(
-                      "maps/IEGOCS/PresentInazuma/DiRigoHouseShadow.png"
-                    )}
-                  />
-                ),
-                path: "RiccardosStreet",
-                label: `${TITLE} - Di Rigo House`,
-              },
+              <Link to="RiversideNorth">
+                <image
+                  className="marker"
+                  x={184}
+                  y={11}
+                  width={57}
+                  height={42}
+                  href={getImageUrl(
+                    "maps/IEGOCS/PresentInazuma/WindsorManorShadow.png"
+                  )}
+                />
+              </Link>,
+              <Link to="RiversidePitch">
+                <image
+                  className="marker"
+                  x={247}
+                  y={65}
+                  width={41}
+                  height={35}
+                  href={getImageUrl(
+                    "maps/IEGOCS/PresentInazuma/RiversideShadow.png"
+                  )}
+                />
+              </Link>,
+              <Link to="InazumaTower">
+                <image
+                  className="marker"
+                  x={173}
+                  y={151}
+                  width={86}
+                  height={56}
+                  href={getImageUrl(
+                    "maps/IEGOCS/PresentInazuma/TowerShadow.png"
+                  )}
+                />
+              </Link>,
+              <Link to="RaimonPitch">
+                <image
+                  className="marker"
+                  x={147.3}
+                  y={68.8}
+                  width={68}
+                  height={49}
+                  href={getImageUrl(
+                    "maps/IEGOCS/PresentInazuma/RaimonJrHighShadow.png"
+                  )}
+                />
+              </Link>,
+              <Link to="ShoppingAreaSouth">
+                <image
+                  className="marker"
+                  x={66}
+                  y={114}
+                  width={52}
+                  height={34}
+                  href={getImageUrl(
+                    "maps/IEGOCS/PresentInazuma/ShoppingAreaShadow.png"
+                  )}
+                />
+              </Link>,
+              <Link to="InazumaPark">
+                <image
+                  className="marker"
+                  x={12}
+                  y={100}
+                  width={32}
+                  height={32}
+                  href={getImageUrl(
+                    "maps/IEGOCS/PresentInazuma/ParkShadow.png"
+                  )}
+                />
+              </Link>,
+              <Link to="Hospital">
+                <image
+                  className="marker"
+                  x={83}
+                  y={40}
+                  width={43}
+                  height={35}
+                  href={getImageUrl(
+                    "maps/IEGOCS/PresentInazuma/HospitalShadow.png"
+                  )}
+                />
+              </Link>,
+              <Link to="RiccardosStreet">
+                <image
+                  className="marker"
+                  x={23}
+                  y={33}
+                  width={51}
+                  height={33}
+                  href={getImageUrl(
+                    "maps/IEGOCS/PresentInazuma/DiRigoHouseShadow.png"
+                  )}
+                />
+              </Link>,
             ]}
           />
         }
@@ -255,46 +221,62 @@ function WindsorManorGF() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={149} y={63} direction="down" size="sm" />,
-          path: "../WindsorManor1F",
-          label: `${TITLE} - Windsor Manor: 1F`,
-        },
-        {
-          marker: <Arrow x={160} y={140} direction="down" size="sm" />,
-          path: "../RiversideNorth",
-          label: `${TITLE} - Riverside: North`,
-        },
-        {
-          marker: <Arrow x={82} y={80} direction="up" size="sm" />,
-          path: "../WindsorManor001",
-          label: `${TITLE} - Windsor Manor: 001`,
-        },
-        {
-          marker: <Arrow x={102} y={80} direction="up" size="sm" />,
-          path: "../WindsorManor002",
-          label: `${TITLE} - Windsor Manor: 002`,
-        },
-        {
-          marker: <Arrow x={123} y={80} direction="up" size="sm" />,
-          path: "../WindsorManor003",
-          label: `${TITLE} - Windsor Manor: 003`,
-        },
-        {
-          marker: <Arrow x={188} y={80} direction="up" size="sm" />,
-          path: "../WindsorManor004",
-          label: `${TITLE} - Windsor Manor: 004`,
-        },
-        {
-          marker: <Arrow x={209} y={80} direction="up" size="sm" />,
-          path: "../WindsorManor005",
-          label: `${TITLE} - Windsor Manor: 005`,
-        },
-        {
-          marker: <Arrow x={230} y={80} direction="up" size="sm" />,
-          path: "../WindsorManor006",
-          label: `${TITLE} - Windsor Manor: 006`,
-        },
+        <Arrow
+          x={149}
+          y={63}
+          direction="down"
+          size="sm"
+          to="../WindsorManor1F"
+        />,
+        <Arrow
+          x={160}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../RiversideNorth"
+        />,
+        <Arrow
+          x={82}
+          y={80}
+          direction="up"
+          size="sm"
+          to="../WindsorManor001"
+        />,
+        <Arrow
+          x={102}
+          y={80}
+          direction="up"
+          size="sm"
+          to="../WindsorManor002"
+        />,
+        <Arrow
+          x={123}
+          y={80}
+          direction="up"
+          size="sm"
+          to="../WindsorManor003"
+        />,
+        <Arrow
+          x={188}
+          y={80}
+          direction="up"
+          size="sm"
+          to="../WindsorManor004"
+        />,
+        <Arrow
+          x={209}
+          y={80}
+          direction="up"
+          size="sm"
+          to="../WindsorManor005"
+        />,
+        <Arrow
+          x={230}
+          y={80}
+          direction="up"
+          size="sm"
+          to="../WindsorManor006"
+        />,
       ]}
     />
   );
@@ -308,46 +290,62 @@ function WindsorManor1F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={149} y={84} direction="down" size="sm" />,
-          path: "../WindsorManor2F",
-          label: `${TITLE} - Windsor Manor: 2F`,
-        },
-        {
-          marker: <Arrow x={149} y={96} direction="up" size="sm" />,
-          path: "../WindsorManorGF",
-          label: `${TITLE} - Windsor Manor: GF`,
-        },
-        {
-          marker: <Arrow x={82} y={101} direction="up" size="sm" />,
-          path: "../WindsorManor101",
-          label: `${TITLE} - Windsor Manor: 101`,
-        },
-        {
-          marker: <Arrow x={102} y={101} direction="up" size="sm" />,
-          path: "../WindsorManor102",
-          label: `${TITLE} - Windsor Manor: 102`,
-        },
-        {
-          marker: <Arrow x={123} y={101} direction="up" size="sm" />,
-          path: "../WindsorManor103",
-          label: `${TITLE} - Windsor Manor: 103`,
-        },
-        {
-          marker: <Arrow x={188} y={101} direction="up" size="sm" />,
-          path: "../WindsorManor104",
-          label: `${TITLE} - Windsor Manor: 104`,
-        },
-        {
-          marker: <Arrow x={209} y={101} direction="up" size="sm" />,
-          path: "../WindsorManor105",
-          label: `${TITLE} - Windsor Manor: 105`,
-        },
-        {
-          marker: <Arrow x={230} y={101} direction="up" size="sm" />,
-          path: "../WindsorManor106",
-          label: `${TITLE} - Windsor Manor: 106`,
-        },
+        <Arrow
+          x={149}
+          y={84}
+          direction="down"
+          size="sm"
+          to="../WindsorManor2F"
+        />,
+        <Arrow
+          x={149}
+          y={96}
+          direction="up"
+          size="sm"
+          to="../WindsorManorGF"
+        />,
+        <Arrow
+          x={82}
+          y={101}
+          direction="up"
+          size="sm"
+          to="../WindsorManor101"
+        />,
+        <Arrow
+          x={102}
+          y={101}
+          direction="up"
+          size="sm"
+          to="../WindsorManor102"
+        />,
+        <Arrow
+          x={123}
+          y={101}
+          direction="up"
+          size="sm"
+          to="../WindsorManor103"
+        />,
+        <Arrow
+          x={188}
+          y={101}
+          direction="up"
+          size="sm"
+          to="../WindsorManor104"
+        />,
+        <Arrow
+          x={209}
+          y={101}
+          direction="up"
+          size="sm"
+          to="../WindsorManor105"
+        />,
+        <Arrow
+          x={230}
+          y={101}
+          direction="up"
+          size="sm"
+          to="../WindsorManor106"
+        />,
       ]}
     />
   );
@@ -361,21 +359,27 @@ function WindsorManor2F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={160} y={88} direction="down" size="sm" />,
-          path: "../WindsorManor1F",
-          label: `${TITLE} - Windsor Manor: 1F`,
-        },
-        {
-          marker: <Arrow x={178} y={106} direction="up" size="sm" />,
-          path: "../WindsorManorSecretRoom",
-          label: `${TITLE} - Windsor Manor: Secret Room`,
-        },
-        {
-          marker: <Arrow x={113} y={106} direction="up" size="sm" />,
-          path: "../WindsorManor201",
-          label: `${TITLE} - Windsor Manor: 201`,
-        },
+        <Arrow
+          x={160}
+          y={88}
+          direction="down"
+          size="sm"
+          to="../WindsorManor1F"
+        />,
+        <Arrow
+          x={178}
+          y={106}
+          direction="up"
+          size="sm"
+          to="../WindsorManorSecretRoom"
+        />,
+        <Arrow
+          x={113}
+          y={106}
+          direction="up"
+          size="sm"
+          to="../WindsorManor201"
+        />,
       ]}
     />
   );
@@ -389,11 +393,7 @@ function WindsorManorSecretRoom() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={115} y={138} direction="down" />,
-          path: "../WindsorManor2F",
-          label: `${TITLE} - Windsor Manor: 2F`,
-        },
+        <Arrow x={115} y={138} direction="down" to="../WindsorManor2F" />,
       ]}
     />
   );
@@ -407,11 +407,13 @@ function WindsorManor001() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManorGF",
-          label: `${TITLE} - Windsor Manor: GF`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManorGF"
+        />,
       ]}
     />
   );
@@ -425,11 +427,13 @@ function WindsorManor002() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManorGF",
-          label: `${TITLE} - Windsor Manor: GF`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManorGF"
+        />,
       ]}
     />
   );
@@ -443,11 +447,13 @@ function WindsorManor003() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManorGF",
-          label: `${TITLE} - Windsor Manor: GF`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManorGF"
+        />,
       ]}
     />
   );
@@ -461,11 +467,13 @@ function WindsorManor004() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManorGF",
-          label: `${TITLE} - Windsor Manor: GF`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManorGF"
+        />,
       ]}
     />
   );
@@ -479,11 +487,13 @@ function WindsorManor005() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManorGF",
-          label: `${TITLE} - Windsor Manor: GF`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManorGF"
+        />,
       ]}
     />
   );
@@ -497,11 +507,13 @@ function WindsorManor006() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManorGF",
-          label: `${TITLE} - Windsor Manor: GF`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManorGF"
+        />,
       ]}
     />
   );
@@ -515,11 +527,13 @@ function WindsorManor101() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManor1F",
-          label: `${TITLE} - Windsor Manor: 1F`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManor1F"
+        />,
       ]}
     />
   );
@@ -533,11 +547,13 @@ function WindsorManor102() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManor1F",
-          label: `${TITLE} - Windsor Manor: 1F`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManor1F"
+        />,
       ]}
     />
   );
@@ -551,11 +567,13 @@ function WindsorManor103() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManor1F",
-          label: `${TITLE} - Windsor Manor: 1F`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManor1F"
+        />,
       ]}
     />
   );
@@ -569,11 +587,13 @@ function WindsorManor104() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManor1F",
-          label: `${TITLE} - Windsor Manor: 1F`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManor1F"
+        />,
       ]}
     />
   );
@@ -587,11 +607,13 @@ function WindsorManor105() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManor1F",
-          label: `${TITLE} - Windsor Manor: 1F`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManor1F"
+        />,
       ]}
     />
   );
@@ -605,11 +627,13 @@ function WindsorManor106() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManor1F",
-          label: `${TITLE} - Windsor Manor: 1F`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManor1F"
+        />,
       ]}
     />
   );
@@ -623,11 +647,13 @@ function WindsorManor201() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={143} y={140} direction="down" size="sm" />,
-          path: "../WindsorManor2F",
-          label: `${TITLE} - Windsor Manor: 2F`,
-        },
+        <Arrow
+          x={143}
+          y={140}
+          direction="down"
+          size="sm"
+          to="../WindsorManor2F"
+        />,
       ]}
     />
   );
@@ -641,16 +667,8 @@ function RiversideNorth() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={155} y={55} direction="up" />,
-          path: "../WindsorManorGF",
-          label: `${TITLE} - Windsor Manor: GF`,
-        },
-        {
-          marker: <Arrow x={187} y={204} direction="down" />,
-          path: "../RiversidePitch",
-          label: `${TITLE} - Riverside: Pitch`,
-        },
+        <Arrow x={155} y={55} direction="up" to="../WindsorManorGF" />,
+        <Arrow x={187} y={204} direction="down" to="../RiversidePitch" />,
       ]}
     />
   );
@@ -664,74 +682,20 @@ function RiversidePitch() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={218} y={2} direction="up" />,
-          path: "../RiversideNorth",
-          label: `${TITLE} - Riverside: North`,
-        },
-        {
-          marker: <Arrow x={105} y={46} direction="left" />,
-          path: "../Station",
-          label: `${TITLE} - Station`,
-        },
-        {
-          marker: <TaisenRoute x={145} y={107} route={routes[0]} />,
-          noredirect: true,
-          modalContent: <RouteModal route={routes[0]} />,
-          modalTitle: routes[0].name,
-        },
-        {
-          marker: <Topic x={111} y={172} topic={topics[3]} />,
-          noredirect: true,
-          modalContent: <PhotoTopicModal content={topics[3]} />,
-          modalTitle: topics[3].name,
-        },
-        {
-          marker: <Topic x={206} y={194} topic={topics[4]} />,
-          noredirect: true,
-          modalContent: <PhotoTopicModal content={topics[4]} />,
-          modalTitle: topics[4].name,
-        },
-        {
-          marker: <NPC x={148} y={190} />,
-          noredirect: true,
-        },
-        {
-          marker: <NPC x={101} y={119} />,
-          noredirect: true,
-        },
-        {
-          marker: <NPC x={192} y={112} />,
-          noredirect: true,
-        },
-        {
-          marker: <NPC x={165} y={96} />,
-          noredirect: true,
-        },
-        {
-          marker: <NPC x={121} y={31} />,
-          noredirect: true,
-        },
-        {
-          marker: <NPC x={167} y={47} />,
-          noredirect: true,
-        },
-        {
-          marker: <Scout x={210} y={58} />,
-          noredirect: true,
-        },
-        {
-          marker: <Duel x={187} y={34} />,
-          noredirect: true,
-          modalContent: <DuelModal duel={duels[1]} />,
-          modalTitle: duels[1].name,
-        },
-        {
-          marker: <Duel x={167} y={182} />,
-          noredirect: true,
-          modalContent: <DuelModal duel={duels[2]} />,
-          modalTitle: duels[2].name,
-        },
+        <Arrow x={218} y={2} direction="up" to="../RiversideNorth" />,
+        <Arrow x={105} y={46} direction="left" to="../Station" />,
+        <TaisenRoute x={145} y={107} route={routes[0]} />,
+        <Topic x={111} y={172} topic={topics[3]} />,
+        <Topic x={206} y={194} topic={topics[4]} />,
+        <NPC x={148} y={190} />,
+        <NPC x={101} y={119} />,
+        <NPC x={192} y={112} />,
+        <NPC x={165} y={96} />,
+        <NPC x={121} y={31} />,
+        <NPC x={167} y={47} />,
+        <Scout x={210} y={58} />,
+        <Duel x={187} y={34} duel={duels[1]} />,
+        <Duel x={167} y={182} duel={duels[2]} />,
       ]}
     />
   );
@@ -745,16 +709,8 @@ function RiversideStation() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={210} y={101} direction="right" />,
-          path: "../Station",
-          label: `${TITLE} - Station`,
-        },
-        {
-          marker: <Arrow x={2} y={78} direction="left" />,
-          path: "../RaimonPitch",
-          label: `${TITLE} - Raimon: Pitch`,
-        },
+        <Arrow x={210} y={101} direction="right" to="../Station" />,
+        <Arrow x={2} y={78} direction="left" to="../RaimonPitch" />,
       ]}
     />
   );
@@ -768,16 +724,8 @@ function Station() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={221} y={104} direction="right" />,
-          path: "../RiversidePitch",
-          label: `${TITLE} - Riverside: Pitch`,
-        },
-        {
-          marker: <Arrow x={102} y={104} direction="left" />,
-          path: "../RiversideStation",
-          label: `${TITLE} - Riverside: Station`,
-        },
+        <Arrow x={221} y={104} direction="right" to="../RiversidePitch" />,
+        <Arrow x={102} y={104} direction="left" to="../RiversideStation" />,
       ]}
     />
   );
@@ -791,36 +739,12 @@ function RaimonPitch() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={314} y={197} direction="right" />,
-          path: "../RiversideStation",
-          label: `${TITLE} - Riverside: Station`,
-        },
-        {
-          marker: <Arrow x={3} y={197} direction="left" />,
-          path: "../ShoppingAreaSouth",
-          label: `${TITLE} - Shopping Area: South`,
-        },
-        {
-          marker: <Arrow x={90} y={78} direction="up" size="sm" />,
-          path: "../OldClubRoom",
-          label: `${TITLE} - Raimon: Old Club Room`,
-        },
-        {
-          marker: <Arrow x={38} y={78} direction="left" />,
-          path: "../RaimonWest",
-          label: `${TITLE} - Raimon: West`,
-        },
-        {
-          marker: <Arrow x={282} y={78} direction="right" />,
-          path: "../RaimonGym",
-          label: `${TITLE} - Raimon: Gym`,
-        },
-        {
-          marker: <Arrow x={160} y={42} direction="up" />,
-          path: "../MainBldGF",
-          label: `${TITLE} - Raimon: Main Building GF`,
-        },
+        <Arrow x={314} y={197} direction="right" to="../RiversideStation" />,
+        <Arrow x={3} y={197} direction="left" to="../ShoppingAreaSouth" />,
+        <Arrow x={90} y={78} direction="up" size="sm" to="../OldClubRoom" />,
+        <Arrow x={38} y={78} direction="left" to="../RaimonWest" />,
+        <Arrow x={282} y={78} direction="right" to="../RaimonGym" />,
+        <Arrow x={160} y={42} direction="up" to="../MainBldGF" />,
       ]}
     />
   );
@@ -834,16 +758,20 @@ function OldClubRoom() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={178} y={125} direction="down" size="sm" />,
-          path: "../RaimonPitch",
-          label: `${TITLE} - Raimon: Pitch`,
-        },
-        {
-          marker: <Arrow x={147} y={99} direction="up" size="sm" />,
-          path: "../OldClubSecretRoom",
-          label: `${TITLE} - Raimon: Old Club Secret Room`,
-        },
+        <Arrow
+          x={178}
+          y={125}
+          direction="down"
+          size="sm"
+          to="../RaimonPitch"
+        />,
+        <Arrow
+          x={147}
+          y={99}
+          direction="up"
+          size="sm"
+          to="../OldClubSecretRoom"
+        />,
       ]}
     />
   );
@@ -857,11 +785,13 @@ function OldClubSecretRoom() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={174} y={110} direction="down" size="sm" />,
-          path: "../OldClubRoom",
-          label: `${TITLE} - Raimon: Old Club`,
-        },
+        <Arrow
+          x={174}
+          y={110}
+          direction="down"
+          size="sm"
+          to="../OldClubRoom"
+        />,
       ]}
     />
   );
@@ -875,36 +805,12 @@ function MainBldGF() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={160} y={164} direction="down" />,
-          path: "../RaimonPitch",
-          label: `${TITLE} - Raimon: Pitch`,
-        },
-        {
-          marker: <Arrow x={46} y={122} direction="left" />,
-          path: "../RaimonWest",
-          label: `${TITLE} - Raimon: West`,
-        },
-        {
-          marker: <Arrow x={273} y={122} direction="right" />,
-          path: "../RaimonGym",
-          label: `${TITLE} - Raimon: Gym`,
-        },
-        {
-          marker: <Arrow x={169} y={60} direction="up" size="sm" />,
-          path: "../MainBld1F",
-          label: `${TITLE} - Raimon: Main Building 1F`,
-        },
-        {
-          marker: <Arrow x={130} y={42} direction="up" />,
-          path: "../RaimonStadium",
-          label: `${TITLE} - Raimon: Stadium`,
-        },
-        {
-          marker: <Arrow x={190} y={42} direction="up" />,
-          path: "../RaimonStadium",
-          label: `${TITLE} - Raimon: Stadium`,
-        },
+        <Arrow x={160} y={164} direction="down" to="../RaimonPitch" />,
+        <Arrow x={46} y={122} direction="left" to="../RaimonWest" />,
+        <Arrow x={273} y={122} direction="right" to="../RaimonGym" />,
+        <Arrow x={169} y={60} direction="up" size="sm" to="../MainBld1F" />,
+        <Arrow x={130} y={42} direction="up" to="../RaimonStadium" />,
+        <Arrow x={190} y={42} direction="up" to="../RaimonStadium" />,
       ]}
     />
   );
@@ -918,31 +824,11 @@ function MainBld1F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={151} y={66} direction="down" size="sm" />,
-          path: "../MainBld2F",
-          label: `${TITLE} - Raimon: Main Building 2F`,
-        },
-        {
-          marker: <Arrow x={151} y={76} direction="up" size="sm" />,
-          path: "../MainBldGF",
-          label: `${TITLE} - Raimon: Main Building GF`,
-        },
-        {
-          marker: <Arrow x={160} y={50} direction="up" size="sm" />,
-          path: "../RaimonStadium",
-          label: `${TITLE} - Raimon: Stadium`,
-        },
-        {
-          marker: <Arrow x={46} y={130} direction="left" />,
-          path: "../WestBld1F",
-          label: `${TITLE} - Raimon: West Building 1F`,
-        },
-        {
-          marker: <Arrow x={273} y={130} direction="right" />,
-          path: "../RaimonGymInside",
-          label: `${TITLE} - Raimon: Gym inside`,
-        },
+        <Arrow x={151} y={66} direction="down" size="sm" to="../MainBld2F" />,
+        <Arrow x={151} y={76} direction="up" size="sm" to="../MainBldGF" />,
+        <Arrow x={160} y={50} direction="up" size="sm" to="../RaimonStadium" />,
+        <Arrow x={46} y={130} direction="left" to="../WestBld1F" />,
+        <Arrow x={273} y={130} direction="right" to="../RaimonGymInside" />,
       ]}
     />
   );
@@ -956,16 +842,8 @@ function MainBld2F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={151} y={66} direction="down" size="sm" />,
-          path: "../MainBld3F",
-          label: `${TITLE} - Raimon: Main Building 2F`,
-        },
-        {
-          marker: <Arrow x={151} y={76} direction="up" size="sm" />,
-          path: "../MainBld1F",
-          label: `${TITLE} - Raimon: Main Building GF`,
-        },
+        <Arrow x={151} y={66} direction="down" size="sm" to="../MainBld3F" />,
+        <Arrow x={151} y={76} direction="up" size="sm" to="../MainBld1F" />,
       ]}
     />
   );
@@ -979,11 +857,7 @@ function MainBld3F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={169} y={66} direction="down" size="sm" />,
-          path: "../MainBld2F",
-          label: `${TITLE} - Raimon: Main Building 2F`,
-        },
+        <Arrow x={169} y={66} direction="down" size="sm" to="../MainBld2F" />,
       ]}
     />
   );
@@ -997,26 +871,10 @@ function RaimonWest() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={210} y={141} direction="right" />,
-          path: "../RaimonPitch",
-          label: `${TITLE} - Raimon: Pitch`,
-        },
-        {
-          marker: <Arrow x={137} y={91} direction="left" />,
-          path: "../WestBldGF",
-          label: `${TITLE} - Raimon: West Building GF`,
-        },
-        {
-          marker: <Arrow x={176} y={21} direction="right" />,
-          path: "../RaimonStadium",
-          label: `${TITLE} - Raimon: Stadium`,
-        },
-        {
-          marker: <Arrow x={150} y={2} direction="up" />,
-          path: "../RaimonCarPark",
-          label: `${TITLE} - Raimon: Car Park`,
-        },
+        <Arrow x={210} y={141} direction="right" to="../RaimonPitch" />,
+        <Arrow x={137} y={91} direction="left" to="../WestBldGF" />,
+        <Arrow x={176} y={21} direction="right" to="../RaimonStadium" />,
+        <Arrow x={150} y={2} direction="up" to="../RaimonCarPark" />,
       ]}
     />
   );
@@ -1030,16 +888,8 @@ function WestBldGF() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={215} y={96} direction="right" />,
-          path: "../RaimonWest",
-          label: `${TITLE} - Raimon: West`,
-        },
-        {
-          marker: <Arrow x={146} y={101} direction="right" size="sm" />,
-          path: "../WestBld1F",
-          label: `${TITLE} - Raimon: West Building 1F`,
-        },
+        <Arrow x={215} y={96} direction="right" to="../RaimonWest" />,
+        <Arrow x={146} y={101} direction="right" size="sm" to="../WestBld1F" />,
       ]}
     />
   );
@@ -1053,21 +903,9 @@ function WestBld1F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={142} y={115} direction="right" size="sm" />,
-          path: "../WestBld2F",
-          label: `${TITLE} - Raimon: West Building 2F`,
-        },
-        {
-          marker: <Arrow x={152} y={115} direction="left" size="sm" />,
-          path: "../WestBldGF",
-          label: `${TITLE} - Raimon: West Building GF`,
-        },
-        {
-          marker: <Arrow x={192} y={29} direction="right" />,
-          path: "../MainBld1F",
-          label: `${TITLE} - Raimon: Main Building 1F`,
-        },
+        <Arrow x={142} y={115} direction="right" size="sm" to="../WestBld2F" />,
+        <Arrow x={152} y={115} direction="left" size="sm" to="../WestBldGF" />,
+        <Arrow x={192} y={29} direction="right" to="../MainBld1F" />,
       ]}
     />
   );
@@ -1081,11 +919,7 @@ function WestBld2F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={144} y={100} direction="right" size="sm" />,
-          path: "../WestBld1F",
-          label: `${TITLE} - Raimon: West Building 1F`,
-        },
+        <Arrow x={144} y={100} direction="right" size="sm" to="../WestBld1F" />,
       ]}
     />
   );
@@ -1099,16 +933,8 @@ function RaimonCarPark() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={161} y={204} direction="down" />,
-          path: "../RaimonWest",
-          label: `${TITLE} - Raimon: West`,
-        },
-        {
-          marker: <Arrow x={68} y={74} direction="left" />,
-          path: "../ShoppingAreaNorth",
-          label: `${TITLE} - Shopping Area: North`,
-        }, // TODO: missing route
+        <Arrow x={161} y={204} direction="down" to="../RaimonWest" />,
+        <Arrow x={68} y={74} direction="left" to="../ShoppingAreaNorth" />,
       ]}
     />
   );
@@ -1122,26 +948,10 @@ function RaimonGym() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={89} y={137} direction="left" />,
-          path: "../RaimonPitch",
-          label: `${TITLE} - Raimon: Pitch`,
-        },
-        {
-          marker: <Arrow x={160} y={94} direction="right" />,
-          path: "../RaimonGymInside",
-          label: `${TITLE} - Raimon: Gym inside`,
-        },
-        {
-          marker: <Arrow x={141} y={2} direction="up" />,
-          path: "../RaimonDojo",
-          label: `${TITLE} - Raimon: Dojo`,
-        },
-        {
-          marker: <Arrow x={109} y={21} direction="left" />,
-          path: "../RaimonStadium",
-          label: `${TITLE} - Raimon: Stadium`,
-        },
+        <Arrow x={89} y={137} direction="left" to="../RaimonPitch" />,
+        <Arrow x={160} y={94} direction="right" to="../RaimonGymInside" />,
+        <Arrow x={141} y={2} direction="up" to="../RaimonDojo" />,
+        <Arrow x={109} y={21} direction="left" to="../RaimonStadium" />,
       ]}
     />
   );
@@ -1155,16 +965,8 @@ function RaimonGymInside() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={97} y={43} direction="left" />,
-          path: "../MainBld1F",
-          label: `${TITLE} - Raimon: Main Building 1F`,
-        },
-        {
-          marker: <Arrow x={97} y={112} direction="left" />,
-          path: "../RaimonGym",
-          label: `${TITLE} - Raimon: Gym`,
-        },
+        <Arrow x={97} y={43} direction="left" to="../MainBld1F" />,
+        <Arrow x={97} y={112} direction="left" to="../RaimonGym" />,
       ]}
     />
   );
@@ -1178,16 +980,8 @@ function RaimonDojo() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={147} y={204} direction="down" />,
-          path: "../RaimonGym",
-          label: `${TITLE} - Raimon: Gym`,
-        },
-        {
-          marker: <Arrow x={179} y={109} direction="right" />,
-          path: "../RaimonDojoInside",
-          label: `${TITLE} - Raimon: Dojo inside`,
-        }, // TODO: missing route
+        <Arrow x={147} y={204} direction="down" to="../RaimonGym" />,
+        <Arrow x={179} y={109} direction="right" to="../RaimonDojoInside" />,
       ]}
     />
   );
@@ -1200,13 +994,7 @@ function RaimonDojoInside() {
       imageSrc={getImageUrl("maps/IEGOCS/PresentInazuma/36.png")}
       width={320}
       height={208}
-      markers={[
-        {
-          marker: <Arrow x={104} y={104} direction="left" />,
-          path: "../RaimonDojo",
-          label: `${TITLE} - Raimon: Dojo`,
-        },
-      ]}
+      markers={[<Arrow x={104} y={104} direction="left" to="../RaimonDojo" />]}
     />
   );
 }
@@ -1219,31 +1007,11 @@ function RaimonStadium() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={13} y={120} direction="left" />,
-          path: "../RaimonWest",
-          label: `${TITLE} - Raimon: West`,
-        },
-        {
-          marker: <Arrow x={300} y={120} direction="right" />,
-          path: "../RaimonGym",
-          label: `${TITLE} - Raimon: Gym`,
-        },
-        {
-          marker: <Arrow x={122} y={141} direction="down" />,
-          path: "../MainBldGF",
-          label: `${TITLE} - Raimon: Main Building GF`,
-        },
-        {
-          marker: <Arrow x={198} y={141} direction="down" />,
-          path: "../MainBldGF",
-          label: `${TITLE} - Raimon: Main Building GF`,
-        },
-        {
-          marker: <Arrow x={160} y={172} direction="down" />,
-          path: "../MainBld1F",
-          label: `${TITLE} - Raimon: Main Building 1F`,
-        }, // TODO: missing route
+        <Arrow x={13} y={120} direction="left" to="../RaimonWest" />,
+        <Arrow x={300} y={120} direction="right" to="../RaimonGym" />,
+        <Arrow x={122} y={141} direction="down" to="../MainBldGF" />,
+        <Arrow x={198} y={141} direction="down" to="../MainBldGF" />,
+        <Arrow x={160} y={172} direction="down" to="../MainBld1F" />, // TODO: missing route
       ]}
     />
   );
@@ -1257,36 +1025,17 @@ function ShoppingAreaSouth() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={318} y={69} direction="right" />,
-          path: "../RaimonPitch",
-          label: `${TITLE} - Raimon: Pitch`,
-        },
-        {
-          marker: <Arrow x={160} y={195} direction="down" />,
-          path: "../ShoppingAreaOutskirts",
-          label: `${TITLE} - Shopping Area: Outskirts`,
-        },
-        {
-          marker: <Arrow x={4} y={69} direction="left" />,
-          path: "../InazumaPark",
-          label: `${TITLE} - Inazuma Park`,
-        },
-        {
-          marker: <Arrow x={160} y={53} direction="up" />,
-          path: "../ShoppingAreaArcade",
-          label: `${TITLE} - Shopping Area: Arcade`,
-        },
-        {
-          marker: <Arrow x={78} y={46} direction="up" />,
-          path: "../ShoppingAreaAlley",
-          label: `${TITLE} - Shopping Area: Alley`,
-        },
-        {
-          marker: <Arrow x={230} y={52} direction="up" size="sm" />,
-          path: "../MagicMoves",
-          label: `${TITLE} - Shopping Area: Magic Moves`,
-        },
+        <Arrow x={318} y={69} direction="right" to="../RaimonPitch" />,
+        <Arrow
+          x={160}
+          y={195}
+          direction="down"
+          to="../ShoppingAreaOutskirts"
+        />,
+        <Arrow x={4} y={69} direction="left" to="../InazumaPark" />,
+        <Arrow x={160} y={53} direction="up" to="../ShoppingAreaArcade" />,
+        <Arrow x={78} y={46} direction="up" to="../ShoppingAreaAlley" />,
+        <Arrow x={230} y={52} direction="up" size="sm" to="../MagicMoves" />,
       ]}
     />
   );
@@ -1300,16 +1049,8 @@ function ShoppingAreaOutskirts() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={84} y={176} direction="left" />,
-          path: "../ShoppingAreaSouth",
-          label: `${TITLE} - Shopping Area: South`,
-        },
-        {
-          marker: <Arrow x={306} y={49} direction="right" />,
-          path: "../InazumaTower",
-          label: `${TITLE} - Inazuma Tower`,
-        },
+        <Arrow x={84} y={176} direction="left" to="../ShoppingAreaSouth" />,
+        <Arrow x={306} y={49} direction="right" to="../InazumaTower" />,
       ]}
     />
   );
@@ -1323,31 +1064,17 @@ function ShoppingAreaArcade() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={161} y={206} direction="down" />,
-          path: "../ShoppingAreaSouth",
-          label: `${TITLE} - Shopping Area: South`,
-        },
-        {
-          marker: <Arrow x={161} y={2} direction="up" />,
-          path: "../ShoppingAreaNorth",
-          label: `${TITLE} - Shopping Area: North`,
-        },
-        {
-          marker: <Arrow x={129} y={98} direction="left" />,
-          path: "../ShoppingAreaAlley",
-          label: `${TITLE} - Shopping Area: Alley`,
-        },
-        {
-          marker: <Arrow x={149} y={114} direction="left" size="sm" />,
-          path: "../RaiRaiNoodles",
-          label: `${TITLE} - Shopping Area: Rai Rai Noodles`,
-        },
-        {
-          marker: <Arrow x={170} y={160} direction="right" size="sm" />,
-          path: "../GMart",
-          label: `${TITLE} - Shopping Area: G-Mart`,
-        },
+        <Arrow x={161} y={206} direction="down" to="../ShoppingAreaSouth" />,
+        <Arrow x={161} y={2} direction="up" to="../ShoppingAreaNorth" />,
+        <Arrow x={129} y={98} direction="left" to="../ShoppingAreaAlley" />,
+        <Arrow
+          x={149}
+          y={114}
+          direction="left"
+          size="sm"
+          to="../RaiRaiNoodles"
+        />,
+        <Arrow x={170} y={160} direction="right" size="sm" to="../GMart" />,
       ]}
     />
   );
@@ -1361,26 +1088,10 @@ function ShoppingAreaAlley() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={198} y={103} direction="right" />,
-          path: "../ShoppingAreaArcade",
-          label: `${TITLE} - Shopping Area: Arcade`,
-        },
-        {
-          marker: <Arrow x={189} y={136} direction="right" />,
-          path: "../GameCentre",
-          label: `${TITLE} - Shopping Area: Game Centre`,
-        },
-        {
-          marker: <Arrow x={133} y={205} direction="down" />,
-          path: "../ShoppingAreaSouth",
-          label: `${TITLE} - Shopping Area: South`,
-        },
-        {
-          marker: <Arrow x={159} y={2} direction="up" />,
-          path: "../ShoppingAreaNorth",
-          label: `${TITLE} - Shopping Area: North`,
-        },
+        <Arrow x={198} y={103} direction="right" to="../ShoppingAreaArcade" />,
+        <Arrow x={189} y={136} direction="right" to="../GameCentre" />,
+        <Arrow x={133} y={205} direction="down" to="../ShoppingAreaSouth" />,
+        <Arrow x={159} y={2} direction="up" to="../ShoppingAreaNorth" />,
       ]}
     />
   );
@@ -1394,16 +1105,8 @@ function GameCentre() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={85} y={104} direction="left" />,
-          path: "../ShoppingAreaAlley",
-          label: `${TITLE} - Shopping Area: Alley`,
-        },
-        {
-          marker: <Arrow x={222} y={60} direction="up" />,
-          path: "../HackersHideout",
-          label: `${TITLE} - Hackers' Hideout`,
-        },
+        <Arrow x={85} y={104} direction="left" to="../ShoppingAreaAlley" />,
+        <Arrow x={222} y={60} direction="up" to="../HackersHideout" />,
       ]}
     />
   );
@@ -1416,13 +1119,7 @@ function HackersHideout() {
       imageSrc={getImageUrl("maps/IEGOCS/PresentInazuma/43.png")}
       width={320}
       height={208}
-      markers={[
-        {
-          marker: <Arrow x={160} y={145} direction="down" />,
-          path: "../GameCentre",
-          label: `${TITLE} - Game Centre`,
-        },
-      ]}
+      markers={[<Arrow x={160} y={145} direction="down" to="../GameCentre" />]}
     />
   );
 }
@@ -1435,36 +1132,12 @@ function ShoppingAreaNorth() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={96} y={202} direction="down" />,
-          path: "../ShoppingAreaAlley",
-          label: `${TITLE} - Shopping Area: Alley`,
-        },
-        {
-          marker: <Arrow x={162} y={168} direction="down" />,
-          path: "../ShoppingAreaArcade",
-          label: `${TITLE} - Shopping Area: Arcade`,
-        },
-        {
-          marker: <Arrow x={5} y={143} direction="left" />,
-          path: "../RiccardosStreet",
-          label: `${TITLE} - Riccardo's Street`,
-        },
-        {
-          marker: <Arrow x={160} y={4} direction="up" />,
-          path: "../Hospital",
-          label: `${TITLE} - Hospital`,
-        },
-        {
-          marker: <Arrow x={315} y={143} direction="right" />,
-          path: "../RaimonCarPark",
-          label: `${TITLE} - Raimon: Car Park`,
-        },
-        {
-          marker: <Arrow x={120} y={121} direction="up" size="sm" />,
-          path: "../KoolKit",
-          label: `${TITLE} - Shopping Area: Kool Kit`,
-        },
+        <Arrow x={96} y={202} direction="down" to="../ShoppingAreaAlley" />,
+        <Arrow x={162} y={168} direction="down" to="../ShoppingAreaArcade" />,
+        <Arrow x={5} y={143} direction="left" to="../RiccardosStreet" />,
+        <Arrow x={160} y={4} direction="up" to="../Hospital" />,
+        <Arrow x={315} y={143} direction="right" to="../RaimonCarPark" />,
+        <Arrow x={120} y={121} direction="up" size="sm" to="../KoolKit" />,
       ]}
     />
   );
@@ -1478,16 +1151,8 @@ function RiccardosStreet() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={160} y={205} direction="down" />,
-          path: "../ShoppingAreaNorth",
-          label: `${TITLE} - Shopping Area: North`,
-        },
-        {
-          marker: <Arrow x={160} y={17} direction="up" />,
-          path: "../DiRigoResidenceGF",
-          label: `${TITLE} - Di Rigo Residence GF`,
-        },
+        <Arrow x={160} y={205} direction="down" to="../ShoppingAreaNorth" />,
+        <Arrow x={160} y={17} direction="up" to="../DiRigoResidenceGF" />,
       ]}
     />
   );
@@ -1501,16 +1166,8 @@ function DiRigoResidenceGF() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={160} y={91} direction="up" />,
-          path: "../DiRigoResidence1F",
-          label: `${TITLE} - Di Rigo Residence 1F`,
-        },
-        {
-          marker: <Arrow x={160} y={151} direction="down" />,
-          path: "../RiccardosStreet",
-          label: `${TITLE} - Riccardo's Street`,
-        },
+        <Arrow x={160} y={91} direction="up" to="../DiRigoResidence1F" />,
+        <Arrow x={160} y={151} direction="down" to="../RiccardosStreet" />,
       ]}
     />
   );
@@ -1524,16 +1181,8 @@ function DiRigoResidence1F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={160} y={93} direction="down" />,
-          path: "../DiRigoResidenceGF",
-          label: `${TITLE} - Di Rigo Residence GF`,
-        },
-        {
-          marker: <Arrow x={134} y={65} direction="right" />,
-          path: "../DiRigoResidence2F",
-          label: `${TITLE} - Di Rigo Residence 2F`,
-        },
+        <Arrow x={160} y={93} direction="down" to="../DiRigoResidenceGF" />,
+        <Arrow x={134} y={65} direction="right" to="../DiRigoResidence2F" />,
       ]}
     />
   );
@@ -1547,11 +1196,7 @@ function DiRigoResidence2F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={126} y={84} direction="left" />,
-          path: "../DiRigoResidenceGF",
-          label: `${TITLE} - Di Rigo Residence GF`,
-        },
+        <Arrow x={126} y={84} direction="left" to="../DiRigoResidenceGF" />,
       ]}
     />
   );
@@ -1565,11 +1210,13 @@ function MagicMoves() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={160} y={151} direction="down" size="sm" />,
-          path: "../ShoppingAreaSouth",
-          label: `${TITLE} - Shopping Area : South`,
-        },
+        <Arrow
+          x={160}
+          y={151}
+          direction="down"
+          size="sm"
+          to="../ShoppingAreaSouth"
+        />,
       ]}
     />
   );
@@ -1583,11 +1230,13 @@ function GMart() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={119} y={90} direction="left" size="sm" />,
-          path: "../ShoppingAreaArcade",
-          label: `${TITLE} - Shopping Area: Arcade`,
-        },
+        <Arrow
+          x={119}
+          y={90}
+          direction="left"
+          size="sm"
+          to="../ShoppingAreaArcade"
+        />,
       ]}
     />
   );
@@ -1601,11 +1250,13 @@ function KoolKit() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={160} y={163} direction="down" size="sm" />,
-          path: "../ShoppingAreaNorth",
-          label: `${TITLE} - Shopping Area: North`,
-        },
+        <Arrow
+          x={160}
+          y={163}
+          direction="down"
+          size="sm"
+          to="../ShoppingAreaNorth"
+        />,
       ]}
     />
   );
@@ -1619,11 +1270,13 @@ function RaiRaiNoodles() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={174} y={125} direction="down" size="sm" />,
-          path: "../ShoppingAreaArcade",
-          label: `${TITLE} - Shopping Area: Arcade`,
-        },
+        <Arrow
+          x={174}
+          y={125}
+          direction="down"
+          size="sm"
+          to="../ShoppingAreaArcade"
+        />,
       ]}
     />
   );
@@ -1637,11 +1290,7 @@ function InazumaTower() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={9} y={139} direction="left" />,
-          path: "../ShoppingAreaOutskirts",
-          label: `${TITLE} - Shopping Area: Outskirts`,
-        },
+        <Arrow x={9} y={139} direction="left" to="../ShoppingAreaOutskirts" />,
       ]}
     />
   );
@@ -1655,11 +1304,7 @@ function InazumaPark() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={316} y={177} direction="right" />,
-          path: "../ShoppingAreaSouth",
-          label: `${TITLE} - Shopping Area: South`,
-        },
+        <Arrow x={316} y={177} direction="right" to="../ShoppingAreaSouth" />,
       ]}
     />
   );
@@ -1673,16 +1318,8 @@ function Hospital() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={160} y={198} direction="down" />,
-          path: "../ShoppingAreaNorth",
-          label: `${TITLE} - Shopping Area: North`,
-        },
-        {
-          marker: <Arrow x={160} y={60} direction="up" />,
-          path: "../HospitalGF",
-          label: `${TITLE} - Hospital GF`,
-        },
+        <Arrow x={160} y={198} direction="down" to="../ShoppingAreaNorth" />,
+        <Arrow x={160} y={60} direction="up" to="../HospitalGF" />,
       ]}
     />
   );
@@ -1696,16 +1333,8 @@ function HospitalGF() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={102} y={55} direction="left" />,
-          path: "../Hospital1F",
-          label: `${TITLE} - Hospital 1F`,
-        },
-        {
-          marker: <Arrow x={160} y={162} direction="down" />,
-          path: "../Hospital",
-          label: `${TITLE} - Hospital`,
-        },
+        <Arrow x={102} y={55} direction="left" to="../Hospital1F" />,
+        <Arrow x={160} y={162} direction="down" to="../Hospital" />,
       ]}
     />
   );
@@ -1719,21 +1348,9 @@ function Hospital1F() {
       width={320}
       height={208}
       markers={[
-        {
-          marker: <Arrow x={70} y={56} direction="left" />,
-          path: "../Hospital2F",
-          label: `${TITLE} - Hospital 2F`,
-        },
-        {
-          marker: <Arrow x={70} y={71} direction="left" />,
-          path: "../HospitalGF",
-          label: `${TITLE} - Hospital GF`,
-        },
-        {
-          marker: <Arrow x={133} y={79} direction="down" />,
-          path: "../Hospital1FOutside",
-          label: `${TITLE} - Hospital 1F Outside`,
-        },
+        <Arrow x={70} y={56} direction="left" to="../Hospital2F" />,
+        <Arrow x={70} y={71} direction="left" to="../HospitalGF" />,
+        <Arrow x={133} y={79} direction="down" to="../Hospital1FOutside" />,
       ]}
     />
   );
@@ -1746,13 +1363,7 @@ function Hospital1FOutside() {
       imageSrc={getImageUrl("maps/IEGOCS/PresentInazuma/56.png")}
       width={320}
       height={208}
-      markers={[
-        {
-          marker: <Arrow x={160} y={65} direction="up" />,
-          path: "../Hospital1F",
-          label: `${TITLE} - Hospital 1F`,
-        },
-      ]}
+      markers={[<Arrow x={160} y={65} direction="up" to="../Hospital1F" />]}
     />
   );
 }
@@ -1764,13 +1375,7 @@ function Hospital2F() {
       imageSrc={getImageUrl("maps/IEGOCS/PresentInazuma/57.png")}
       width={320}
       height={208}
-      markers={[
-        {
-          marker: <Arrow x={128} y={103} direction="left" />,
-          path: "../Hospital1F",
-          label: `${TITLE} - Hospital 1F`,
-        },
-      ]}
+      markers={[<Arrow x={128} y={103} direction="left" to="../Hospital1F" />]}
     />
   );
 }

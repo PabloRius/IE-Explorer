@@ -1,4 +1,6 @@
-import { Photo as PhotoClass } from "../../types/database";
+import { useModal } from "@/hooks/useModal";
+import { Photo as PhotoClass } from "@database.types";
+import { PhotoTopicModal } from "../modals";
 
 export function Photo({
   x,
@@ -9,10 +11,18 @@ export function Photo({
   y: number;
   photo: PhotoClass;
 }) {
+  const { changeModal } = useModal();
+
   const { avatar } = photo;
 
   return (
     <svg
+      onClick={() => {
+        changeModal({
+          newContent: <PhotoTopicModal content={photo} />,
+          title: photo.name,
+        });
+      }}
       width={15.5}
       height={14}
       viewBox="0 0 31 28"

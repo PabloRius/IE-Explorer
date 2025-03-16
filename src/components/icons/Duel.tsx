@@ -1,6 +1,23 @@
-export function Duel({ x, y }: { x: number; y: number }) {
+import { useModal } from "@/hooks/useModal";
+import { Duel as DuelType } from "@/types/database";
+import { DuelModal } from "../modals/Duel";
+
+export function Duel({ x, y, duel }: { x: number; y: number; duel: DuelType }) {
+  const { changeModal } = useModal();
   return (
-    <svg width="10" height="10" viewBox="0 0 20 20" x={x - 5} y={y - 5}>
+    <svg
+      onClick={() => {
+        changeModal({
+          newContent: <DuelModal duel={duel} />,
+          title: duel.name,
+        });
+      }}
+      width="10"
+      height="10"
+      viewBox="0 0 20 20"
+      x={x - 5}
+      y={y - 5}
+    >
       <circle
         r={5}
         cx={10}

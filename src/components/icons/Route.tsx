@@ -1,6 +1,8 @@
+import { useModal } from "@/hooks/useModal";
 import { Route as RouteClass } from "@database.types";
+import { RouteModal } from "../modals";
 
-export function TaisenRoute({
+export function Route({
   x,
   y,
   route,
@@ -9,9 +11,17 @@ export function TaisenRoute({
   y: number;
   route: RouteClass;
 }) {
+  const { changeModal } = useModal();
+
   const { avatar } = route;
   return (
     <svg
+      onClick={() => {
+        changeModal({
+          newContent: <RouteModal route={route} />,
+          title: route.name,
+        });
+      }}
       width={12}
       height={10}
       viewBox="0 0 32 28"

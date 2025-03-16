@@ -291,23 +291,26 @@ export class Match {
   }
 }
 
+export type ChestRarity = undefined | "silver" | "gold";
+
 export class Chest {
   id: number;
   content: Item;
-  avatar: string;
-  location: string;
+  rarity: ChestRarity;
   game: Game;
+
+  location: string;
   constructor(
     id: number,
     content: Item,
     game: Game,
     location: string,
-    rarity?: "silver" | "gold"
+    rarity?: ChestRarity
   ) {
     this.id = id;
     this.content = content;
     this.game = game;
-    this.avatar = getImageUrl(`routes/${rarity || "Chest"}.png`);
+    this.rarity = rarity;
     this.location = location;
   }
 }
@@ -464,12 +467,20 @@ export class Player {
 export class Duel {
   id: number;
   name: string;
-  players: LengthFiveArray<{ player: Player; scoutable: boolean }>;
+  players: LengthFiveArray<{
+    player: Player;
+    scoutable: boolean;
+    versionExclusive?: string;
+  }>;
   rewards: Array<Item>;
   constructor(
     id: number,
     name: string,
-    players: LengthFiveArray<{ player: Player; scoutable: boolean }>,
+    players: LengthFiveArray<{
+      player: Player;
+      scoutable: boolean;
+      versionExclusive?: string;
+    }>,
     rewards: Array<Item>
   ) {
     this.id = id;

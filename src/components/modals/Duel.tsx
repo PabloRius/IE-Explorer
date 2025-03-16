@@ -28,7 +28,7 @@ export function DuelModal({ duel }: { duel: Duel }) {
                   className="h-16 md:h-20 aspect-square rounded-lg no-pix"
                 />
 
-                <div className="absolute top-2 left-2 flex gap-2">
+                <div className="absolute top-2 left-2 flex gap-1">
                   <img
                     src={getImageUrl(`icons/${affinity}.png`)}
                     alt={affinity}
@@ -38,7 +38,7 @@ export function DuelModal({ duel }: { duel: Duel }) {
                   <img
                     src={getImageUrl(`icons/${position}.png`)}
                     alt={position}
-                    className="w-8 h-3 md:w-10 md:h-4"
+                    className="w-7 h-3 md:w-8 md:h-4"
                   />
                 </div>
 
