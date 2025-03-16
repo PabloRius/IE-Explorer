@@ -33,14 +33,14 @@ export class Item {
   name: string;
   avatar: string;
   game: Game;
-  how_to_obtain: Array<HTO>;
+  how_to_obtain: Array<HTO> | HTO;
   price: number | undefined;
   constructor(
     id: number,
     name: string,
     avatar: string,
     game: Game,
-    how_to_obtain: Array<HTO>,
+    how_to_obtain: Array<HTO> | HTO,
     price?: number
   ) {
     this.id = id;
@@ -187,12 +187,7 @@ export class KeyItem extends Item {
 }
 
 export class PalPackItem extends Item {
-  constructor(
-    id: number,
-    name: string,
-    game: Game,
-    how_to_obtain: NonEmptyArray<HTO>
-  ) {
+  constructor(id: number, name: string, game: Game, how_to_obtain: HTO) {
     const avatar = `items/palpackitems/${id}`;
     super(id, name, avatar, game, how_to_obtain);
   }
