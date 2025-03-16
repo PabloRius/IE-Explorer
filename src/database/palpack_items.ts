@@ -27,6 +27,15 @@ addPalPackItem(
 );
 
 addPalPackItem(
+  new PalPackItem(11, "Mysterious menu", Game.IEGOCS, [
+    new HTO(
+      "Defeat Light Fantastic in the riverside north",
+      "PresentInazuma/RiversideNorth"
+    ),
+  ])
+);
+
+addPalPackItem(
   new PalPackItem(12, "Skull badge", Game.IEGOCS, [
     new HTO(
       "Defeat Point Takens in the riverside pitch",

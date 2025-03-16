@@ -307,4 +307,18 @@ export const moves: Record<number, Move> = {
     "skills",
     { effect: "Raises a player's dribble stat by 10" }
   ),
+  223: new Move(
+    223,
+    "Catch Boost",
+    Game.IEGOCS,
+    [
+      new HTO(
+        "Inside a chest in the riverside north",
+        "HolyRoadStadium/Entrance"
+      ),
+    ],
+    "skill",
+    "skills",
+    { effect: "Raises a player's catch stat by 10" }
+  ),
 };

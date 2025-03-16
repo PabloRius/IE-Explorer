@@ -1,6 +1,7 @@
 import { Chest, Game } from "@database.types";
 import { boots } from "./equipment";
 import { key_items } from "./key_items";
+import { moves } from "./moves";
 
 export const chests: Record<number, Chest> = {
   0: new Chest(
@@ -17,4 +18,5 @@ export const chests: Record<number, Chest> = {
   ),
   2: new Chest(2, boots[37], Game.IEGOCS, "HolyRoad Parking"),
   3: new Chest(3, boots[63], Game.IEGOCS, "HolyRoad Hallway"),
+  4: new Chest(4, moves[223], Game.IEGOCS, "PresentInazuma/RiversideNorth"),
 };

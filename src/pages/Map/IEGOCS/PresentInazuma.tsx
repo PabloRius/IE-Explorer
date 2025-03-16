@@ -1,5 +1,6 @@
 import {
   Arrow,
+  Chest,
   Duel,
   NPC,
   Scout,
@@ -8,7 +9,7 @@ import {
 } from "@/components/icons";
 import { MapView } from "@/components/MapView";
 import { getImageUrl } from "@/config";
-import { routes, topics } from "@/database";
+import { chests, routes, topics } from "@/database";
 import { duels } from "@/database/duels";
 import { Link, Route, Routes } from "react-router";
 
@@ -669,6 +670,10 @@ function RiversideNorth() {
       markers={[
         <Arrow x={155} y={55} direction="up" to="../WindsorManorGF" />,
         <Arrow x={187} y={204} direction="down" to="../RiversidePitch" />,
+        <Topic x={172} y={104} topic={topics[5]} />,
+        <Topic x={75} y={105} topic={topics[6]} />,
+        <Duel x={235} y={86} duel={duels[3]} />,
+        <Chest x={246} y={90} chest={chests[4]} />,
       ]}
     />
   );
@@ -726,6 +731,8 @@ function Station() {
       markers={[
         <Arrow x={221} y={104} direction="right" to="../RiversidePitch" />,
         <Arrow x={102} y={104} direction="left" to="../RiversideStation" />,
+        <Topic x={214} y={120} topic={topics[7]} />,
+        <Scout x={155} y={100} />,
       ]}
     />
   );

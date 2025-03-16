@@ -54,3 +54,18 @@ addDuel(
     []
   )
 );
+
+addDuel(
+  new Duel(
+    3,
+    "Light Fantastic",
+    [
+      { player: players[22], scoutable: false },
+      { player: players[23], scoutable: false },
+      { player: players[24], scoutable: false },
+      { player: players[25], scoutable: false },
+      { player: players[26], scoutable: false },
+    ],
+    [palpack_items[11]]
+  )
+);

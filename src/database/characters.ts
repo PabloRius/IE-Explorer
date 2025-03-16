@@ -104,3 +104,17 @@ addCharacter(
 );
 
 addCharacter(new Character(21, "Ruff Weedon", "Ganta", "Ruff", "male", []));
+
+addCharacter(new Character(22, "Tommy Wobbal", "Dancer", "Wobbal", "male", []));
+
+addCharacter(
+  new Character(23, "Rhys Semanrime", "Retci", "Lil Rhys", "male", [])
+);
+
+addCharacter(new Character(24, "Freddie Stayre", "Hat", "Asteir", "male", []));
+
+addCharacter(
+  new Character(25, "Boe Heemian", "Rinko", "Heemian", "female", [])
+);
+
+addCharacter(new Character(26, "Summer Salt", "Odoro", "Salt", "female", []));
